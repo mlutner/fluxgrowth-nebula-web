@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -75,6 +74,9 @@ export default {
 					green: 'rgb(var(--sage-green))',
 					light: 'rgb(var(--sage-light))',
 					dark: 'rgb(var(--sage-dark))'
+				},
+				nebula: {
+					lime: 'rgb(211, 255, 202)'
 				}
 			},
 			borderRadius: {
@@ -83,7 +85,9 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['Inter Tight', 'system-ui', 'sans-serif'],
+				headline: ['Space Grotesk', 'system-ui', 'sans-serif'],
+				body: ['Inter Tight', 'system-ui', 'sans-serif'],
 			},
 			fontWeight: {
 				'extralight': '200',

@@ -22,7 +22,7 @@ const Hero = () => {
         delay: Math.random() * 10,
         duration: Math.random() * 15 + 10, // 10-25s
         opacity: Math.random() * 0.6 + 0.2, // 0.2-0.8
-        colorVariant: Math.random() > 0.5 ? 'sage' : 'white'
+        colorVariant: Math.random() > 0.5 ? 'nebula' : 'white'
       });
     }
     return dots;
@@ -63,7 +63,7 @@ const Hero = () => {
               top: `${dot.top}%`,
               width: `${dot.size}px`,
               height: `${dot.size}px`,
-              backgroundColor: dot.colorVariant === 'sage' ? '#a8d5ba' : '#f8fafc',
+              backgroundColor: dot.colorVariant === 'nebula' ? 'rgb(211, 255, 202)' : '#f8fafc',
               opacity: dot.opacity,
               animationDelay: `${dot.delay}s`,
               animationDuration: `${dot.duration}s`,
@@ -76,18 +76,18 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline - smaller and thicker font */}
-          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.05em] text-white mb-12 leading-[0.75] transition-all duration-1000 ${
+          {/* Main headline - using Space Grotesk font */}
+          <h1 className={`font-headline text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.05em] text-white mb-12 leading-[0.75] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Turn AI Into Your{' '}
-            <span className="bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-nebula-lime via-nebula-lime to-nebula-lime bg-clip-text text-transparent font-normal">
               Competitive Advantage
             </span>
           </h1>
 
-          {/* Subheadline - 20% larger with more space above */}
-          <p className={`text-base md:text-lg text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
+          {/* Subheadline - using Inter Tight font */}
+          <p className={`font-body text-base md:text-lg text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             We help ambitious businesses harness automation, chatbots, and AI-driven growth strategies without the technical overwhelm.

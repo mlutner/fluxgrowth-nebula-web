@@ -51,8 +51,8 @@ const About = () => {
       className="explainer-section py-32 md:py-40 lg:py-48 relative overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 700px 350px at center, rgba(181, 227, 192, 0.10) 0%, transparent 60%),
-          radial-gradient(ellipse 900px 450px at center, rgba(181, 227, 192, 0.05) 0%, transparent 70%),
+          radial-gradient(ellipse 700px 350px at center, rgba(211, 255, 202, 0.10) 0%, transparent 60%),
+          radial-gradient(ellipse 900px 450px at center, rgba(211, 255, 202, 0.05) 0%, transparent 70%),
           transparent
         `
       }}
@@ -60,7 +60,7 @@ const About = () => {
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center px-6 sm:px-8">
           <div className="pb-20 pt-12">
-            <p className="explainer-text text-4xl md:text-6xl lg:text-8xl font-medium text-white leading-[1.3] tracking-tighter">
+            <p className="explainer-text font-headline text-4xl md:text-6xl lg:text-8xl font-medium text-white leading-[1.3] tracking-tighter">
               {words.map((word, index) => {
                 if (word.isEmoji) {
                   return (
@@ -77,7 +77,7 @@ const About = () => {
                   <span
                     key={index}
                     className={`animated-word ${word.class} inline-block mx-1 md:mx-2 ${
-                      word.isGreen ? 'highlight-text' : ''
+                      word.isGreen ? 'text-nebula-lime' : ''
                     }`}
                   >
                     {word.text}
