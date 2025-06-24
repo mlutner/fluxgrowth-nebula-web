@@ -35,12 +35,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-flux-blue to-flux-purple rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
-            </div>
-            <span className="text-xl md:text-2xl font-bold text-white">
-              FluxGrowth
-            </span>
+            <img 
+              src="/lovable-uploads/bc1e670f-0fd4-4dde-bc6c-10a0ffa0e3d6.png" 
+              alt="FluxGrowth Logo" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Menu */}
