@@ -1,0 +1,127 @@
+
+/* Vivid Green-Orange Orb Animation - More Saturated Colors */
+.orb-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sage-orb {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(0, 255, 127, 1) 0%,
+    rgba(255, 165, 0, 0.95) 25%,
+    rgba(255, 69, 0, 0.9) 45%,
+    rgba(0, 200, 100, 0.8) 70%,
+    rgba(0, 150, 75, 0.4) 100%);
+  filter: blur(50px);
+  animation: 
+    sageOrbFloat 12s ease-in-out infinite, 
+    sageOrbShift 18s ease-in-out infinite, 
+    sageOrbRotate 25s linear infinite,
+    sageOrbCircle 20s linear infinite,
+    sageOrbPulse 8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes sageOrbFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  20% {
+    transform: translateY(-12px) scale(1.03);
+  }
+  40% {
+    transform: translateY(8px) scale(0.99);
+  }
+  60% {
+    transform: translateY(-6px) scale(1.01);
+  }
+  80% {
+    transform: translateY(4px) scale(0.995);
+  }
+}
+
+@keyframes sageOrbRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sageOrbCircle {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(15px, -15px);
+  }
+  50% {
+    transform: translate(0px, -30px);
+  }
+  75% {
+    transform: translate(-15px, -15px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes sageOrbPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes sageOrbShift {
+  0% {
+    background: radial-gradient(circle at 30% 30%, 
+      rgba(0, 255, 127, 1) 0%,
+      rgba(255, 165, 0, 0.95) 25%,
+      rgba(255, 69, 0, 0.9) 45%,
+      rgba(0, 200, 100, 0.8) 70%,
+      rgba(0, 150, 75, 0.4) 100%);
+  }
+  25% {
+    background: radial-gradient(circle at 70% 20%, 
+      rgba(255, 140, 0, 1) 0%,
+      rgba(0, 255, 127, 0.95) 25%,
+      rgba(255, 215, 0, 0.9) 45%,
+      rgba(255, 69, 0, 0.8) 70%,
+      rgba(0, 150, 75, 0.4) 100%);
+  }
+  50% {
+    background: radial-gradient(circle at 20% 80%, 
+      rgba(255, 69, 0, 1) 0%,
+      rgba(0, 255, 127, 0.95) 25%,
+      rgba(255, 140, 0, 0.9) 45%,
+      rgba(0, 200, 100, 0.8) 70%,
+      rgba(0, 150, 75, 0.4) 100%);
+  }
+  75% {
+    background: radial-gradient(circle at 80% 70%, 
+      rgba(0, 255, 127, 1) 0%,
+      rgba(255, 165, 0, 0.95) 25%,
+      rgba(255, 215, 0, 0.9) 45%,
+      rgba(255, 140, 0, 0.8) 70%,
+      rgba(0, 150, 75, 0.4) 100%);
+  }
+  100% {
+    background: radial-gradient(circle at 30% 30%, 
+      rgba(0, 255, 127, 1) 0%,
+      rgba(255, 165, 0, 0.95) 25%,
+      rgba(255, 69, 0, 0.9) 45%,
+      rgba(0, 200, 100, 0.8) 70%,
+      rgba(0, 150, 75, 0.4) 100%);
+  }
+}

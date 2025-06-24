@@ -1,0 +1,17 @@
+
+/* Responsive animation adjustments */
+@media (max-width: 768px) {
+  .sage-orb {
+    width: 250px;
+    height: 250px;
+    filter: blur(40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .sage-orb {
+    width: 180px;
+    height: 180px;
+    filter: blur(30px);
+  }
+}
