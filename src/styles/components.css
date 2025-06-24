@@ -257,6 +257,75 @@
     }
   }
 
+  /* Animated Glow CTA Button - new moving glow effect */
+  .animated-glow-cta-button {
+    position: relative;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(181, 227, 192, 0.4);
+    color: #b5e3c0;
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 0 20px rgba(181, 227, 192, 0.4),
+      0 0 40px rgba(181, 227, 192, 0.2),
+      0 0 60px rgba(181, 227, 192, 0.1);
+  }
+
+  .animated-glow-cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(181, 227, 192, 0.3) 0%,
+      rgba(181, 227, 192, 0.1) 50%,
+      transparent 70%
+    );
+    animation: moving-glow 3s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .animated-glow-cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: inherit;
+    z-index: 2;
+  }
+
+  .animated-glow-cta-button:hover {
+    box-shadow: 
+      0 0 30px rgba(181, 227, 192, 0.6),
+      0 0 60px rgba(181, 227, 192, 0.3),
+      0 0 90px rgba(181, 227, 192, 0.15);
+    border-color: rgba(181, 227, 192, 0.6);
+  }
+
+  .animated-glow-cta-button:hover::before {
+    background: radial-gradient(
+      circle at center,
+      rgba(181, 227, 192, 0.5) 0%,
+      rgba(181, 227, 192, 0.2) 50%,
+      transparent 70%
+    );
+  }
+
+  @keyframes moving-glow {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-30%, -30%) scale(1.2);
+      opacity: 1;
+    }
+  }
+
   /* Graphic Bubble Styles for About Section */
   .graphic-bubble {
     position: relative;
@@ -329,122 +398,4 @@
   }
 }
 
-/* Background pattern */
-.dot-pattern {
-  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-/* Process Section Styles */
-.process-section {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 8rem 2rem;
-}
-
-.section-title {
-  font-size: clamp(48px, 8vw, 120px);
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 6rem;
-  color: white;
-}
-
-.section-title-right {
-  font-size: clamp(48px, 8vw, 120px);
-  font-weight: 300;
-  text-align: right;
-  margin-bottom: 6rem;
-  color: white;
-}
-
-.process-title {
-  font-size: clamp(48px, 8vw, 120px);
-  font-weight: 300;
-  text-align: left;
-  margin-bottom: 6rem;
-  color: white;
-}
-
-.process-title-smaller {
-  font-size: clamp(36px, 6vw, 90px);
-  font-weight: 300;
-  text-align: left;
-  margin-bottom: 6rem;
-  color: white;
-}
-
-.section-title .highlight,
-.section-title-right .highlight,
-.process-title .highlight,
-.process-title-smaller .highlight {
-  background: linear-gradient(135deg, #b5e3c0, #9fd1a8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 500;
-}
-
-/* Process Steps Grid */
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.process-step {
-  padding: 2rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.process-step:hover,
-.process-step.active {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(181, 227, 192, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.step-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #b5e3c0;
-  margin-bottom: 1rem;
-}
-
-.step-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: white;
-}
-
-.step-description {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .mockup-container {
-    height: 300px;
-  }
-  
-  .process-steps {
-    grid-template-columns: 1fr;
-  }
-  
-  .section-title,
-  .section-title-right,
-  .process-title,
-  .process-title-smaller {
-    font-size: 3rem;
-    text-align: center;
-  }
-
-  .process-section {
-    padding: 4rem 1rem;
-  }
-}
+/* ... keep existing code (background pattern and process section styles) */

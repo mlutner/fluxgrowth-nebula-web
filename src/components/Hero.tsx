@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
@@ -93,12 +92,20 @@ const Hero = () => {
             We help ambitious businesses harness automation, chatbots, and AI-driven growth strategies without the technical overwhelm.
           </p>
 
-          {/* CTA Buttons - subtle like reference image */}
+          {/* CTA Buttons - updated with new animated style */}
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button 
-              className="subtle-button-primary px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
+              className="animated-glow-cta-button px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
+              style={{
+                background: 'rgba(20, 20, 20, 0.8)',
+                border: '1px solid rgba(181, 227, 192, 0.4)',
+                color: '#b5e3c0',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
             >
               Our services
             </button>

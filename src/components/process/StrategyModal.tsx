@@ -65,6 +65,7 @@ const StrategyModal: React.FC<StrategyModalProps> = ({
                 </p>
                 <button 
                   onClick={handleGetStarted}
+                  className="animated-glow-cta-button"
                   style={{
                     padding: '16px 32px',
                     borderRadius: '12px',
@@ -79,27 +80,8 @@ const StrategyModal: React.FC<StrategyModalProps> = ({
                     color: '#b5e3c0',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
-                    boxShadow: `
-                      0 0 20px rgba(181, 227, 192, 0.4),
-                      0 0 40px rgba(181, 227, 192, 0.2),
-                      0 0 60px rgba(181, 227, 192, 0.1)
-                    `
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `
-                      0 0 30px rgba(181, 227, 192, 0.6),
-                      0 0 60px rgba(181, 227, 192, 0.3),
-                      0 0 90px rgba(181, 227, 192, 0.15)
-                    `;
-                    e.currentTarget.style.borderColor = 'rgba(181, 227, 192, 0.6)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = `
-                      0 0 20px rgba(181, 227, 192, 0.4),
-                      0 0 40px rgba(181, 227, 192, 0.2),
-                      0 0 60px rgba(181, 227, 192, 0.1)
-                    `;
-                    e.currentTarget.style.borderColor = 'rgba(181, 227, 192, 0.4)';
+                    position: 'relative',
+                    overflow: 'hidden'
                   }}
                 >
                   Get Started Today
