@@ -52,13 +52,13 @@ const About = () => {
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="explainer-text text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.85] tracking-tighter">
+          <p className="explainer-text text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-[0.85] tracking-tighter">
             {words.map((word, index) => {
               if (word.isEmoji) {
                 return (
                   <span 
                     key={index}
-                    className={`${word.class} inline-flex items-center justify-center mx-4`}
+                    className={`${word.class} inline-flex items-center justify-center mx-6`}
                   >
                     <span className="text-6xl md:text-7xl lg:text-8xl">{word.text}</span>
                   </span>
@@ -68,7 +68,7 @@ const About = () => {
               return (
                 <span
                   key={index}
-                  className={`animated-word ${word.class} inline-block mx-3 ${
+                  className={`animated-word ${word.class} inline-block mx-4 ${
                     word.isGreen ? 'highlight-text' : ''
                   }`}
                 >
