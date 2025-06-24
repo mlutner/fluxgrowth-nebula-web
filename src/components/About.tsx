@@ -34,7 +34,7 @@ const About = () => {
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center px-6 sm:px-8">
           <div className="pb-20 pt-12">
-            <p className="explainer-text font-headline text-4xl md:text-6xl lg:text-8xl font-medium text-white leading-[1.3] tracking-tighter">
+            <p className="explainer-text font-headline text-5xl md:text-7xl lg:text-9xl font-light text-white leading-[1.2] tracking-[-0.02em]">
               {words.map((word, index) => {
                 if (word.isEmoji) {
                   return (
@@ -43,7 +43,7 @@ const About = () => {
                       className={`${word.class} fade-in-section inline-flex items-center justify-center mx-2 md:mx-4`}
                       style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
                     >
-                      <span className="text-5xl md:text-6xl lg:text-8xl">{word.text}</span>
+                      <span className="text-6xl md:text-7xl lg:text-9xl">{word.text}</span>
                     </span>
                   );
                 }
@@ -52,7 +52,7 @@ const About = () => {
                   <span
                     key={index}
                     className={`animated-word fade-in-section ${word.class} inline-block mx-1 md:mx-2 ${
-                      word.isGreen ? 'text-nebula-lime' : ''
+                      word.isGreen ? 'text-nebula-lime font-medium' : ''
                     }`}
                     style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
                   >
