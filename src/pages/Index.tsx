@@ -8,9 +8,11 @@ import Process from '@/components/Process';
 import Results from '@/components/Results';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const Index = () => {
   useScrollAnimation();
+  useScrollReveal();
 
   useEffect(() => {
     // Set dark mode by default

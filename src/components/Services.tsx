@@ -134,7 +134,7 @@ const Services = () => {
   return (
     <section id="services" className="section-padding bg-charcoal">
       <div className="container-custom">
-        <div className="text-left mb-16">
+        <div className="text-left mb-16 fade-in-section">
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6">
             Our services
           </h2>
@@ -144,7 +144,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group glass-charcoal rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/10 hover:border-nebula-lime/30 animate-on-scroll"
+              className={`group glass-charcoal rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/10 hover:border-nebula-lime/30 fade-in-section delay-${index + 1}`}
             >
               {/* Mockup Section */}
               <div className="mb-8 h-32 bg-white/5 rounded-xl p-4 border border-white/10">

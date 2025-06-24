@@ -39,7 +39,7 @@ const Process = () => {
   return (
     <section id="process" className="process-section bg-charcoal">
       <div className="container-custom">
-        <h2 className="process-title-smaller">
+        <h2 className="process-title-smaller fade-in-section">
           Our <span className="highlight">process</span>
         </h2>
         
@@ -47,7 +47,7 @@ const Process = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className={`process-step ${activeStep === index + 1 ? 'active' : ''}`}
+              className={`process-step fade-in-section delay-${index % 3 + 1} ${activeStep === index + 1 ? 'active' : ''}`}
               onMouseEnter={() => handleStepHover(index + 1)}
             >
               <div className="step-number">{step.number}</div>
