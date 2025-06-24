@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -69,6 +68,12 @@ export default {
 					purple: '#4F46E5',
 					green: '#10B981',
 					gray: '#F8FAFC'
+				},
+				charcoal: 'rgb(var(--charcoal))',
+				sage: {
+					green: 'rgb(var(--sage-green))',
+					light: 'rgb(var(--sage-light))',
+					dark: 'rgb(var(--sage-dark))'
 				}
 			},
 			borderRadius: {
@@ -78,6 +83,9 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
+			},
+			fontWeight: {
+				'extralight': '200',
 			},
 			keyframes: {
 				'accordion-down': {
