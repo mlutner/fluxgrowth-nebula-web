@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,23 +63,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Enhanced design system colors
-				charcoal: {
-					DEFAULT: 'rgb(var(--charcoal))',
-					light: 'rgb(var(--charcoal-light))',
-					lighter: 'rgb(var(--charcoal-lighter))'
+				flux: {
+					dark: '#0B1426',
+					blue: '#00D4FF',
+					purple: '#4F46E5',
+					green: '#10B981',
+					gray: '#F8FAFC'
 				},
-				neutral: {
-					50: 'rgb(var(--neutral-50))',
-					100: 'rgb(var(--neutral-100))',
-					200: 'rgb(var(--neutral-200))',
-					300: 'rgb(var(--neutral-300))',
-					400: 'rgb(var(--neutral-400))',
-					500: 'rgb(var(--neutral-500))',
-					600: 'rgb(var(--neutral-600))',
-					700: 'rgb(var(--neutral-700))',
-					800: 'rgb(var(--neutral-800))',
-					900: 'rgb(var(--neutral-900))'
+				charcoal: 'rgb(var(--charcoal))',
+				sage: {
+					green: 'rgb(var(--sage-green))',
+					light: 'rgb(var(--sage-light))',
+					dark: 'rgb(var(--sage-dark))'
 				}
 			},
 			borderRadius: {
@@ -90,30 +86,10 @@ export default {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
 			},
 			fontWeight: {
-				'ultralight': '100',
-				'light': '300',
-				'normal': '400',
-				'medium': '500',
-				'semibold': '600',
-				'bold': '700',
+				'extralight': '200',
 			},
 			letterSpacing: {
-				'tightest': '-0.04em',
-				'tighter': '-0.02em',
-				'tight': '-0.01em',
-			},
-			lineHeight: {
-				'extra-tight': '0.9',
-				'tight': '1.1',
-				'snug': '1.2',
-				'normal': '1.6',
-				'relaxed': '1.7',
-			},
-			spacing: {
-				'18': '4.5rem',
-				'22': '5.5rem',
-				'26': '6.5rem',
-				'30': '7.5rem',
+				'tighter': '-0.05em',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -187,25 +163,6 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px rgba(79, 70, 229, 0.6)'
 					}
-				},
-				'float-elegant': {
-					'0%, 100%': { 
-						transform: 'translateY(0px) rotate(0deg)' 
-					},
-					'33%': { 
-						transform: 'translateY(-8px) rotate(1deg)' 
-					},
-					'66%': { 
-						transform: 'translateY(-4px) rotate(-1deg)' 
-					}
-				},
-				'pulse-green': {
-					'0%, 100%': { 
-						boxShadow: '0 0 20px rgba(34, 197, 94, 0.3)'
-					},
-					'50%': { 
-						boxShadow: '0 0 40px rgba(34, 197, 94, 0.5)'
-					}
 				}
 			},
 			animation: {
@@ -216,16 +173,10 @@ export default {
 				'fade-in-right': 'fade-in-right 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'glow': 'glow 3s ease-in-out infinite',
-				'float-elegant': 'float-elegant 8s ease-in-out infinite',
-				'pulse-green': 'pulse-green 3s ease-in-out infinite'
+				'glow': 'glow 3s ease-in-out infinite'
 			},
 			backdropBlur: {
 				xs: '2px',
-			},
-			boxShadow: {
-				'elegant': '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-				'elegant-lg': '0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(34, 197, 94, 0.1)',
 			}
 		}
 	},

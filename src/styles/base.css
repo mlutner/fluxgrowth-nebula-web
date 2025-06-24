@@ -44,28 +44,11 @@
     --sidebar-border: 226 232 240;
     --sidebar-ring: 79 70 229;
 
-    /* Enhanced design system colors */
-    --charcoal: 15 15 15;
-    --charcoal-light: 26 26 26;
-    --charcoal-lighter: 40 40 40;
-    
-    /* Refined green palette */
-    --primary-green: 34 197 94;
-    --primary-green-light: 74 222 128;
-    --primary-green-dark: 21 128 61;
-    --accent-green: 16 185 129;
-    
-    /* Neutral grays */
-    --neutral-50: 249 250 251;
-    --neutral-100: 243 244 246;
-    --neutral-200: 229 231 235;
-    --neutral-300: 209 213 219;
-    --neutral-400: 156 163 175;
-    --neutral-500: 107 114 128;
-    --neutral-600: 75 85 99;
-    --neutral-700: 55 65 81;
-    --neutral-800: 31 41 55;
-    --neutral-900: 17 24 39;
+    /* Custom color variables */
+    --charcoal: 26 26 26;
+    --sage-green: 143 188 143;
+    --sage-light: 144 198 149;
+    --sage-dark: 120 160 120;
   }
 
   .dark {
@@ -113,71 +96,32 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    font-optical-sizing: auto;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 60%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(34, 197, 94, 0.02) 0%, transparent 50%),
-      rgb(var(--charcoal));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 300;
+    background: radial-gradient(ellipse at top, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                hsl(var(--background));
   }
 
   html {
     scroll-behavior: smooth;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
-
-  /* Enhanced typography scale */
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-  }
-
-  h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-  h2 { font-size: clamp(2rem, 4vw, 3rem); }
-  h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-  h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
-
-  p {
-    line-height: 1.7;
-    font-weight: 400;
-  }
-
-  /* Grid overlay for precision */
-  .design-grid::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
-    z-index: 0;
   }
 }
 
-/* Enhanced scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(var(--charcoal-light));
+  background: hsl(var(--muted));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, rgb(var(--primary-green)), rgb(var(--accent-green)));
-  border-radius: 3px;
+  background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--ring)));
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgb(var(--primary-green-light)), rgb(var(--primary-green)));
+  background: linear-gradient(to bottom, hsl(var(--ring)), hsl(var(--primary)));
 }

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,84 +10,132 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
+  // Generate random dots with varying properties
+  const generateDots = () => {
+    const dots = [];
+    for (let i = 0; i < 20; i++) {
+      dots.push({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() * 4 + 2, // 2-6px
+        delay: Math.random() * 10,
+        duration: Math.random() * 15 + 10, // 10-25s
+        opacity: Math.random() * 0.6 + 0.2, // 0.2-0.8
+        colorVariant: Math.random() > 0.5 ? 'sage' : 'white'
+      });
+    }
+    return dots;
+  };
+
+  const [dots] = useState(generateDots);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal design-grid">
-      {/* Sophisticated background orb */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
+      {/* Smaller animated multicolor orb background */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="orb-container">
-          <div 
-            className="w-[600px] h-[600px] rounded-full opacity-40"
-            style={{
-              background: `
-                radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.4) 0%, transparent 40%),
-                radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.3) 0%, transparent 40%),
-                radial-gradient(circle at 50% 80%, rgba(5, 150, 105, 0.2) 0%, transparent 40%)
-              `,
-              filter: 'blur(100px)',
-              animation: 'float-elegant 12s ease-in-out infinite'
-            }}
-          />
+          <div className="sage-orb"></div>
         </div>
       </div>
 
-      {/* Subtle overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/40"></div>
+      {/* Subtle overlay for text readability */}
+      <div className="absolute inset-0 bg-charcoal/20"></div>
+
+      {/* Original floating particles */}
+      <div className="particles absolute inset-0">
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+      </div>
+
+      {/* New random moving dots */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {dots.map((dot) => (
+          <div
+            key={dot.id}
+            className="absolute rounded-full animate-pulse"
+            style={{
+              left: `${dot.left}%`,
+              top: `${dot.top}%`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`,
+              backgroundColor: dot.colorVariant === 'sage' ? '#a8d5ba' : '#f8fafc',
+              opacity: dot.opacity,
+              animationDelay: `${dot.delay}s`,
+              animationDuration: `${dot.duration}s`,
+              transform: 'translate(-50%, -50%)',
+              animation: `randomFloat-${dot.id} ${dot.duration}s ease-in-out ${dot.delay}s infinite`
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline with enhanced typography */}
-          <h1 className={`heading-xl text-white mb-8 transition-all duration-1000 ${
+          {/* Main headline - smaller and thicker font */}
+          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.05em] text-white mb-12 leading-[0.75] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Turn AI Into Your{' '}
-            <span className="sage-gradient font-medium">
+            <span className="bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent font-normal">
               Competitive Advantage
             </span>
           </h1>
 
-          {/* Enhanced subheadline */}
-          <p className={`body-lg text-neutral-300 mb-12 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${
+          {/* Subheadline - 20% larger with more space above */}
+          <p className={`text-base md:text-lg text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            We help ambitious businesses harness automation, chatbots, and AI-driven growth strategies 
-            without the technical overwhelm.
+            We help ambitious businesses harness automation, chatbots, and AI-driven growth strategies without the technical overwhelm.
           </p>
 
-          {/* Refined CTA buttons */}
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-400 ${
+          {/* CTA Buttons - subtle like reference image */}
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <button className="btn-primary group">
+            <button 
+              className="subtle-button-primary px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
+            >
               Our services
             </button>
-            <button className="btn-secondary group">
+            <button 
+              className="subtle-button-secondary px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
+            >
               Get in touch
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform inline" />
             </button>
-          </div>
-
-          {/* Enhanced feature highlights */}
-          <div className={`mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-600 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            {[
-              { title: "AI Strategy", desc: "Custom roadmaps" },
-              { title: "Automation", desc: "Smart workflows" },
-              { title: "24/7 Support", desc: "Always available" }
-            ].map((item, index) => (
-              <div key={index} className="glass-charcoal rounded-xl p-6 hover-lift">
-                <h3 className="text-white font-medium mb-2">{item.title}</h3>
-                <p className="text-neutral-400 text-sm">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
 
-      {/* Refined scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float-elegant">
-        <div className="w-px h-16 bg-gradient-to-b from-green-400 to-transparent rounded-full"></div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-1 h-20 bg-gradient-to-b from-[#a8d5ba] to-transparent rounded-full"></div>
       </div>
+
+      {/* Dynamic keyframes for random dot movement */}
+      <style>
+        {dots.map((dot) => `
+          @keyframes randomFloat-${dot.id} {
+            0%, 100% {
+              transform: translate(-50%, -50%) translateX(0px) translateY(0px);
+            }
+            25% {
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 100}px) translateY(${(Math.random() - 0.5) * 100}px);
+            }
+            50% {
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 80}px) translateY(${(Math.random() - 0.5) * 80}px);
+            }
+            75% {
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 120}px) translateY(${(Math.random() - 0.5) * 120}px);
+            }
+          }
+        `).join('\n')}
+      </style>
     </section>
   );
 };
