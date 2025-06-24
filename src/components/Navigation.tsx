@@ -48,10 +48,10 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white/80 hover:text-white transition-colors duration-200 relative group"
+                className="text-white/80 hover:text-white transition-all duration-200 relative group px-3 py-2 rounded-md hover:bg-white/5 hover:border border-transparent hover:border-sage-green/30"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-flux-blue transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-sage-green transition-all duration-300 group-hover:w-4/5"></span>
               </a>
             ))}
           </div>
