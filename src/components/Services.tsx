@@ -37,14 +37,16 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-flux-dark">
+    <section id="services" className="section-padding bg-charcoal">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-flux-dark dark:text-white mb-6 animate-on-scroll">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 animate-on-scroll">
             How We Accelerate Your{' '}
-            <span className="text-gradient">Growth</span>
+            <span className="bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent">
+              Growth
+            </span>
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto animate-on-scroll">
+          <p className="text-xl text-white/60 max-w-3xl mx-auto animate-on-scroll font-light">
             Comprehensive AI solutions designed to transform your business operations and drive measurable results.
           </p>
         </div>
@@ -53,29 +55,29 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700 hover:border-flux-blue/30 animate-on-scroll"
+              className="group glass-charcoal rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/10 hover:border-[#a8d5ba]/30 animate-on-scroll"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-flux-blue to-flux-purple rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-br from-[#a8d5ba] to-[#8fbc8f] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <service.icon className="w-8 h-8 text-charcoal" />
               </div>
               
-              <h3 className="text-xl font-semibold text-flux-dark dark:text-white mb-4 group-hover:text-flux-blue transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-[#a8d5ba] transition-colors duration-300">
                 {service.title}
               </h3>
               
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-white/70 leading-relaxed font-light">
                 {service.description}
               </p>
 
               <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-full h-1 bg-gradient-to-r from-flux-blue to-flux-purple rounded-full"></div>
+                <div className="w-full h-1 bg-gradient-to-r from-[#a8d5ba] to-[#8fbc8f] rounded-full"></div>
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-16 animate-on-scroll">
-          <button className="bg-flux-blue hover:bg-flux-blue/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-flux-blue/25 hover:-translate-y-1">
+          <button className="subtle-button-primary px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#a8d5ba]/25 hover:-translate-y-1">
             Explore All Services
           </button>
         </div>
