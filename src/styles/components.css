@@ -17,7 +17,7 @@
   }
 
   .sage-gradient {
-    @apply bg-gradient-to-r from-sage-light via-sage-green to-sage-dark bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent;
   }
 
   .hover-lift {
@@ -38,17 +38,17 @@
 
   /* Subtle button styles */
   .subtle-button-primary {
-    background: rgba(143, 188, 143, 0.2);
-    border: 1px solid rgba(143, 188, 143, 0.3);
-    color: rgba(143, 188, 143, 1);
+    background: rgba(168, 213, 186, 0.2);
+    border: 1px solid rgba(168, 213, 186, 0.3);
+    color: rgba(168, 213, 186, 1);
     font-weight: 400;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
   }
 
   .subtle-button-primary:hover {
-    background: rgba(143, 188, 143, 0.3);
-    border-color: rgba(143, 188, 143, 0.5);
+    background: rgba(168, 213, 186, 0.3);
+    border-color: rgba(168, 213, 186, 0.5);
   }
 
   .subtle-button-secondary {
@@ -75,8 +75,8 @@
     
     /* The key glow effect */
     box-shadow: 
-      0 0 20px rgba(143, 188, 143, 0.3),  /* Soft sage green glow */
-      0 0 40px rgba(143, 188, 143, 0.1),  /* Larger, more diffuse glow */
+      0 0 20px rgba(168, 213, 186, 0.3),  /* Updated sage green glow */
+      0 0 40px rgba(168, 213, 186, 0.1),  /* Larger, more diffuse glow */
       inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Subtle inner highlight */
     
     transition: all 0.3s ease;
@@ -84,8 +84,8 @@
 
   .glow-button:hover {
     box-shadow: 
-      0 0 30px rgba(143, 188, 143, 0.5),  /* Stronger glow on hover */
-      0 0 60px rgba(143, 188, 143, 0.2);
+      0 0 30px rgba(168, 213, 186, 0.5),  /* Stronger glow on hover */
+      0 0 60px rgba(168, 213, 186, 0.2);
   }
 
   .glow-button-outline {
@@ -97,7 +97,7 @@
     /* Outline button glow effect */
     box-shadow: 
       0 0 20px rgba(255, 255, 255, 0.1),
-      0 0 40px rgba(143, 188, 143, 0.05),
+      0 0 40px rgba(168, 213, 186, 0.05),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
     transition: all 0.3s ease;
@@ -106,7 +106,7 @@
   .glow-button-outline:hover {
     box-shadow: 
       0 0 25px rgba(255, 255, 255, 0.2),
-      0 0 50px rgba(143, 188, 143, 0.15);
+      0 0 50px rgba(168, 213, 186, 0.15);
     border-color: rgba(255, 255, 255, 0.5);
   }
 }
