@@ -10,15 +10,15 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  // Generate random dots with varying properties - increased count and smaller size
+  // Generate random dots with varying properties - increased count and even smaller size
   const generateDots = () => {
     const dots = [];
-    for (let i = 0; i < 40; i++) { // Increased from 20 to 40
+    for (let i = 0; i < 60; i++) { // Increased from 40 to 60
       dots.push({
         id: i,
         left: Math.random() * 100,
         top: Math.random() * 100,
-        size: Math.random() * 2.4 + 1.2, // Decreased by 40%: 1.2-3.6px (was 2-6px)
+        size: Math.random() * 1.8 + 0.9, // Decreased by 25%: 0.9-2.7px (was 1.2-3.6px)
         delay: Math.random() * 10,
         duration: Math.random() * 15 + 10, // 10-25s
         opacity: Math.random() * 0.6 + 0.2, // 0.2-0.8
