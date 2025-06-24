@@ -36,6 +36,8 @@
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* ... keep existing code (word reveal animations, emoji animations, button styles through glow-button-outline) */
+
   /* Word reveal animation */
   .explainer-text {
     font-size: clamp(24px, 4vw, 48px);
@@ -187,6 +189,27 @@
     border-color: rgba(255, 255, 255, 0.5);
   }
 
+  /* Outlined Glow Button - for Hero section buttons */
+  .outlined-glow-button {
+    background: transparent;
+    border: 1px solid rgba(181, 227, 192, 0.4);
+    color: #b5e3c0;
+    font-weight: 400;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .outlined-glow-button:hover {
+    box-shadow: 
+      0 0 20px rgba(181, 227, 192, 0.4),
+      0 0 40px rgba(181, 227, 192, 0.2),
+      0 0 60px rgba(181, 227, 192, 0.1);
+    border-color: rgba(181, 227, 192, 0.6);
+    background: rgba(181, 227, 192, 0.05);
+  }
+
   /* Animated CTA Button */
   .animated-cta-button {
     position: relative;
@@ -326,6 +349,8 @@
     }
   }
 
+  /* ... keep existing code (graphic bubble styles) */
+
   /* Graphic Bubble Styles for About Section */
   .graphic-bubble {
     position: relative;
@@ -397,5 +422,3 @@
     }
   }
 }
-
-/* ... keep existing code (background pattern and process section styles) */

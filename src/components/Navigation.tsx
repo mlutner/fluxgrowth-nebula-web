@@ -56,11 +56,19 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA - Updated to new style */}
           <div className="hidden md:block">
             <button 
-              className="animated-cta-button px-6 py-2 rounded-lg transition-all duration-300"
+              className="animated-glow-cta-button px-6 py-2 rounded-lg transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              style={{
+                background: 'rgba(20, 20, 20, 0.8)',
+                border: '1px solid rgba(181, 227, 192, 0.4)',
+                color: '#b5e3c0',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
             >
               <span className="relative z-10">Get Started</span>
             </button>
@@ -90,15 +98,23 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button 
-              className="w-full bg-flux-blue hover:bg-flux-blue/90 text-flux-dark font-semibold mt-4"
+            <button 
+              className="animated-glow-cta-button w-full px-6 py-2 rounded-lg transition-all duration-300 mt-4"
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
+              style={{
+                background: 'rgba(20, 20, 20, 0.8)',
+                border: '1px solid rgba(181, 227, 192, 0.4)',
+                color: '#b5e3c0',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
             >
-              Get Started
-            </Button>
+              <span className="relative z-10">Get Started</span>
+            </button>
           </div>
         </div>
       </div>

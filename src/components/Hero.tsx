@@ -97,20 +97,12 @@ const Hero = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button 
-              className="animated-glow-cta-button px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
-              style={{
-                background: 'rgba(20, 20, 20, 0.8)',
-                border: '1px solid rgba(181, 227, 192, 0.4)',
-                color: '#b5e3c0',
-                cursor: 'pointer',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
+              className="outlined-glow-button px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
             >
               Our services
             </button>
             <button 
-              className="subtle-button-secondary px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
+              className="outlined-glow-button px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
             >
               Get in touch
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform inline" />
