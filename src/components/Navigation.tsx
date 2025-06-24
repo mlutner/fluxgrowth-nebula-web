@@ -43,12 +43,12 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 px-6 py-3 rounded-lg border border-sage-green/30 bg-white/5 backdrop-blur-sm">
             {menuItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white/80 hover:text-white transition-all duration-200 relative group px-3 py-2 rounded-md hover:bg-white/5 hover:border border-transparent hover:border-sage-green/30"
+                className="text-white/80 hover:text-white transition-all duration-200 relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-sage-green transition-all duration-300 group-hover:w-4/5"></span>
