@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,14 +45,14 @@
     --sidebar-ring: 79 70 229;
 
     /* Custom color variables - updated to deeper black */
-    --charcoal: 8 8 8;
+    --charcoal: 8 8 7;
     --sage-green: 143 188 143;
     --sage-light: 144 198 149;
     --sage-dark: 120 160 120;
   }
 
   .dark {
-    --background: 8 8 8;
+    --background: 8 8 7;
     --foreground: 248 250 252;
 
     --card: 12 12 12;
@@ -61,7 +62,7 @@
     --popover-foreground: 248 250 252;
 
     --primary: 0 212 255;
-    --primary-foreground: 8 8 8;
+    --primary-foreground: 8 8 7;
 
     --secondary: 15 15 15;
     --secondary-foreground: 226 232 240;
@@ -82,7 +83,7 @@
     --sidebar-background: 12 12 12;
     --sidebar-foreground: 148 163 184;
     --sidebar-primary: 0 212 255;
-    --sidebar-primary-foreground: 8 8 8;
+    --sidebar-primary-foreground: 8 8 7;
     --sidebar-accent: 15 15 15;
     --sidebar-accent-foreground: 226 232 240;
     --sidebar-border: 20 20 20;
@@ -97,10 +98,30 @@
     @apply bg-background text-foreground;
     font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
     font-weight: 300;
-    background: radial-gradient(ellipse at top, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at center, rgba(181, 227, 192, 0.08) 0%, transparent 70%),
-                rgb(8, 8, 8);
+    
+    /* Nebula-style layered background effect */
+    background-color: #080807;
+    background-image: 
+      /* Layer 1: Top-left glow */
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(34, 38, 30, 0.75),
+        rgba(8, 8, 7, 0) 35%
+      ),
+      /* Layer 2: Bottom-right glow */
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(34, 38, 30, 0.5),
+        rgba(8, 8, 7, 0) 40%
+      ),
+      /* Layer 3: Center subtle glow for depth */
+      radial-gradient(
+        ellipse at center,
+        rgba(211, 255, 202, 0.03) 0%,
+        transparent 70%
+      );
+    
+    background-attachment: fixed;
   }
 
   html {
