@@ -1,9 +1,9 @@
 
-/* Enhanced Process Section Styles */
-.process-section-enhanced {
+/* Enhanced Process Section Styles V2 */
+.process-section-enhanced-v2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 50px;
   width: 100%;
   max-width: 1440px;
@@ -11,14 +11,15 @@
   padding: 80px 20px;
 }
 
-/* Heading */
-.process-heading-enhanced {
+/* Left-aligned, lighter weight heading */
+.process-heading-enhanced-v2 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: 700;
-  text-align: center;
+  font-weight: 400;
+  text-align: left;
   margin-bottom: 40px;
   color: white;
+  width: 100%;
 }
 
 .accent-text-enhanced {
@@ -26,7 +27,7 @@
 }
 
 /* Grid Layout for Process Cards */
-.process-grid-enhanced {
+.process-grid-enhanced-v2 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 25px;
@@ -34,7 +35,7 @@
 }
 
 /* Process Card General Styling */
-.process-card-enhanced {
+.process-card-enhanced-v2 {
   border: 1px solid #232323;
   border-radius: 15px;
   padding: 40px;
@@ -48,14 +49,14 @@
   transition: all 0.3s ease;
 }
 
-.process-card-enhanced:hover {
-  background: rgba(255, 255, 255, 0.05);
+.process-card-enhanced-v2:hover {
+  background: #0c0c0b;
   border-color: rgba(181, 227, 192, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.process-card-enhanced::before {
+.process-card-enhanced-v2::before {
   content: '';
   position: absolute;
   top: 0; 
@@ -67,9 +68,28 @@
   z-index: 0;
 }
 
-.process-card-enhanced > * {
+.process-card-enhanced-v2 > * {
   position: relative;
   z-index: 1;
+}
+
+/* Card graphic container */
+.card-graphic-container-enhanced-v2 {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #232323;
+  border-radius: 10px;
+  background-color: #0F0F0F;
+  overflow: hidden;
+}
+
+.card-graphic-container-enhanced-v2 svg {
+  width: 180px;
+  height: 180px;
 }
 
 .card-text-content-enhanced {
@@ -96,18 +116,18 @@
 }
 
 /* Strategist Card Specific Styles */
-.strategist-card {
-  background: rgba(15, 15, 15, 0.8) !important;
-}
-
-.strategist-graphic-enhanced {
+.strategist-card-content-enhanced-v2 {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px 0;
 }
 
-.business-input-enhanced {
+.business-input-enhanced-v2 {
   width: 100%;
   background-color: #080807;
   border: 1px solid #232323;
@@ -119,11 +139,11 @@
   box-sizing: border-box;
 }
 
-.business-input-enhanced::placeholder { 
+.business-input-enhanced-v2::placeholder { 
   color: #555; 
 }
 
-.generate-strategy-btn-enhanced {
+.generate-strategy-btn-enhanced-v2 {
   background-color: rgb(211, 255, 202);
   color: #080807;
   font-family: 'Space Grotesk', sans-serif;
@@ -138,19 +158,20 @@
   justify-content: center;
   align-items: center;
   min-height: 48px;
+  width: 100%;
 }
 
-.generate-strategy-btn-enhanced:hover {
+.generate-strategy-btn-enhanced-v2:hover {
   background-color: #ffffff;
 }
 
-.generate-strategy-btn-enhanced:disabled {
+.generate-strategy-btn-enhanced-v2:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
 /* Modal Styles */
-.modal-overlay-enhanced {
+.modal-overlay-enhanced-v2 {
   position: fixed;
   top: 0; 
   left: 0;
@@ -165,7 +186,7 @@
   animation: fadeIn 0.3s ease;
 }
 
-.modal-content-enhanced {
+.modal-content-enhanced-v2 {
   background-color: #0F0F0F;
   border: 1px solid #232323;
   border-radius: 15px;
@@ -176,9 +197,10 @@
   animation: scaleIn 0.3s ease;
   max-height: 80vh;
   overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-.modal-close-btn-enhanced {
+.modal-close-btn-enhanced-v2 {
   background: #232323;
   color: #fff;
   border: none;
@@ -186,39 +208,56 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.2s;
 }
 
-.strategy-results-enhanced h4 {
+.modal-close-btn-enhanced-v2:hover {
+  background: #333;
+}
+
+.strategy-results-enhanced-v2 h4 {
   font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 25px 0;
+}
+
+.strategy-results-enhanced-v2 h4 .accent-text-enhanced {
   color: rgb(211, 255, 202);
-  margin-bottom: 20px;
 }
 
-.strategy-step-enhanced {
-  border-bottom: 1px solid #232323;
-  padding: 15px 0;
+.strategy-step-enhanced-v2 {
+  border-top: 1px solid #232323;
+  padding: 20px 0;
 }
 
-.strategy-step-enhanced:last-child {
-  border-bottom: none;
+.strategy-step-enhanced-v2:first-of-type {
+  border-top: none;
+  padding-top: 0;
 }
 
-.strategy-step-enhanced h5 {
+.strategy-step-enhanced-v2 h5 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
   margin: 0 0 8px 0;
   color: #fff;
 }
 
-.strategy-step-enhanced p {
+.step-number-enhanced {
+  color: rgb(211, 255, 202);
+}
+
+.strategy-step-enhanced-v2 p {
   font-family: 'Inter Tight', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #858585;
   margin: 0;
 }
@@ -250,15 +289,139 @@
   to { transform: scale(1); }
 }
 
+/* Animation Styles */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SVG Animations */
+@keyframes radar-sweep { 
+  0% { transform: rotate(0deg); } 
+  100% { transform: rotate(360deg); } 
+}
+
+@keyframes radar-pulse { 
+  0%, 100% { opacity: 0; } 
+  50% { opacity: 1; } 
+}
+
+.assess-svg .radar-sweep { 
+  animation: radar-sweep 4s linear infinite; 
+  transform-origin: center; 
+}
+
+.assess-svg .radar-pulse { 
+  animation: radar-pulse 2.5s ease-in-out infinite; 
+}
+
+@keyframes draw { 
+  to { stroke-dashoffset: 0; } 
+}
+
+@keyframes slide-in { 
+  from { transform: translateX(-20px); opacity: 0; } 
+  to { transform: translateX(0); opacity: 1; } 
+}
+
+.architect-svg .grid-line { 
+  opacity: 0.3; 
+}
+
+.architect-svg .draw-anim { 
+  stroke-dasharray: 500; 
+  stroke-dashoffset: 500; 
+  animation: draw 4s ease-in-out infinite alternate; 
+}
+
+.architect-svg .slide-anim { 
+  opacity: 0; 
+  animation: slide-in 1.5s ease-out infinite alternate 1s; 
+  transform-origin: center;
+}
+
+@keyframes pulse-node { 
+  0%, 100% { r: 8; opacity: 0.3; } 
+  50% { r: 12; opacity: 1; } 
+}
+
+@keyframes pulse-line { 
+  0%, 100% { opacity: 0.2; } 
+  50% { opacity: 1; } 
+}
+
+.activate-svg .node-center { 
+  animation: pulse-node 3.5s ease-in-out infinite; 
+}
+
+.activate-svg .node-line { 
+  animation: pulse-line 3.5s ease-in-out infinite; 
+}
+
+@keyframes draw-line { 
+  0% { stroke-dashoffset: 500; } 
+  100% { stroke-dashoffset: 0; } 
+}
+
+@keyframes pop-in { 
+  0% { transform: scale(0); } 
+  100% { transform: scale(1); } 
+}
+
+.optimize-svg .data-line { 
+  stroke-dasharray: 500; 
+  stroke-dashoffset: 500; 
+  animation: draw-line 4s ease-in-out infinite alternate; 
+}
+
+.optimize-svg .data-point { 
+  transform-origin: center; 
+  animation: pop-in 0.5s ease-out forwards; 
+  opacity: 0; 
+  animation-delay: var(--delay); 
+}
+
+.process-card-enhanced-v2:hover .optimize-svg .data-point { 
+  opacity: 1; 
+}
+
+@keyframes accelerate-anim { 
+  0% { transform: translateX(-15px); opacity: 0; } 
+  50% { opacity: 1; } 
+  100% { transform: translateX(0px); opacity: 0;} 
+}
+
+.accelerate-svg .arrow1 { 
+  animation: accelerate-anim 2s ease-in-out infinite; 
+}
+
+.accelerate-svg .arrow2 { 
+  animation: accelerate-anim 2s ease-in-out infinite 0.2s; 
+}
+
+.accelerate-svg .arrow3 { 
+  animation: accelerate-anim 2s ease-in-out infinite 0.4s; 
+}
+
 /* Responsive Grid Adjustments */
 @media (min-width: 768px) {
-  .process-grid-enhanced {
+  .process-grid-enhanced-v2 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1200px) {
-  .process-grid-enhanced {
+  .process-grid-enhanced-v2 {
     grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .process-card-enhanced-v2:last-child:nth-child(odd) {
+    grid-column: span 2;
   }
 }
