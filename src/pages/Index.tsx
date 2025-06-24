@@ -1,12 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navigation from '@/components/Navigation';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Process from '@/components/Process';
+import Results from '@/components/Results';
+import Footer from '@/components/Footer';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Index = () => {
+  useScrollAnimation();
+
+  useEffect(() => {
+    // Set dark mode by default
+    document.documentElement.classList.add('dark');
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-flux-dark via-slate-900 to-flux-dark">
+      <Navigation />
+      <main>
+        <Hero />
+        <Services />
+        <Process />
+        <Results />
+      </main>
+      <Footer />
     </div>
   );
 };
