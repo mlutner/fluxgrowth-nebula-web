@@ -37,10 +37,16 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-charcoal">
+    <section 
+      id="services" 
+      className="section-padding relative"
+      style={{
+        boxShadow: '0 0 100px rgba(181, 227, 192, 0.15), inset 0 0 100px rgba(181, 227, 192, 0.05)'
+      }}
+    >
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 animate-on-scroll">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 animate-on-scroll leading-tight">
             How We Accelerate Your{' '}
             <span className="bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent">
               Growth
