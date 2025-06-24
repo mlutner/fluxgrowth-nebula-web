@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,15 +12,18 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
-      {/* Large rotating gradient orb background */}
-      <div className="rotating-orb"></div>
+      {/* Smaller animated multicolor orb background */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="orb-container">
+          <div className="sage-orb"></div>
+        </div>
+      </div>
 
-      {/* Twinkling white dot particles */}
-      <div className="particles absolute inset-0 pointer-events-none">
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
+      {/* Subtle overlay for text readability */}
+      <div className="absolute inset-0 bg-charcoal/20"></div>
+
+      {/* Floating particles */}
+      <div className="particles absolute inset-0">
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>
@@ -28,19 +32,16 @@ const Hero = () => {
         <div className="particle"></div>
       </div>
 
-      {/* Subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-charcoal/20"></div>
-
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline with word-specific colors */}
-          <h1 className={`hero-headline transition-all duration-1000 ${
+          {/* Main headline - extra tight spacing to match reference */}
+          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tighter text-white mb-2 leading-[0.8] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <span className="driving">Driving</span>{' '}
-            <span className="growth">growth</span>{' '}
-            <span className="with">with</span>{' '}
-            <span className="ai">AI.</span>
+            Turn AI Into Your{' '}
+            <span className="sage-gradient bg-gradient-to-r from-sage-light via-sage-green to-sage-dark bg-clip-text text-transparent font-light">
+              Competitive Advantage
+            </span>
           </h1>
 
           {/* Smaller subheadline with more space below */}
