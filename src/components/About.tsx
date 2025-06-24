@@ -36,26 +36,60 @@ const About = () => {
     let textParts = [];
     let lastIndex = 0;
     
+    // Define text segments with their styling
+    const textSegments = [
+      { start: 0, end: 23, text: "We're your AI ", isGreen: false },
+      { start: 23, end: 37, text: "transformation", isGreen: true },
+      { start: 37, end: 46, text: " partners", isGreen: false },
+      { start: 46, end: 89, text: " We turn complex technology into competitive", isGreen: false },
+      { start: 89, end: 108, text: " business advantages", isGreen: true },
+      { start: 108, end: 109, text: ".", isGreen: false }
+    ];
+    
     emojiPositions.forEach(({ index, emoji, key }, i) => {
       if (displayedText.length > index) {
         // Add text before emoji
-        textParts.push(
-          <span key={`text-${i}`}>
-            {displayedText.slice(lastIndex, index)}
-          </span>
-        );
+        const textBeforeEmoji = displayedText.slice(lastIndex, index);
         
-        // Add emoji with button styling
+        // Apply green styling to specific parts
+        const styledText = textSegments.map((segment, segIndex) => {
+          if (segment.start >= lastIndex && segment.end <= index) {
+            const segmentText = displayedText.slice(Math.max(segment.start, lastIndex), Math.min(segment.end, index));
+            if (segmentText) {
+              return (
+                <span 
+                  key={`segment-${i}-${segIndex}`}
+                  className={segment.isGreen ? 'text-emerald-400' : ''}
+                >
+                  {segmentText}
+                </span>
+              );
+            }
+          }
+          return null;
+        }).filter(Boolean);
+        
+        if (styledText.length > 0) {
+          textParts.push(...styledText);
+        } else {
+          textParts.push(
+            <span key={`text-${i}`}>
+              {textBeforeEmoji}
+            </span>
+          );
+        }
+        
+        // Add emoji inline with text
         textParts.push(
           <span 
             key={`emoji-${i}`}
-            className={`inline-flex items-center justify-center w-12 h-12 mx-3 rounded-xl transition-all duration-500 ${
+            className={`inline-flex items-center justify-center w-16 h-16 mx-2 rounded-2xl transition-all duration-500 ${
               showEmojis[key] 
-                ? 'bg-emerald-800/30 border border-emerald-600/40 scale-100 opacity-100' 
+                ? 'bg-emerald-800/40 border border-emerald-600/50 scale-100 opacity-100' 
                 : 'scale-0 opacity-0'
             }`}
           >
-            <span className="text-2xl">{emoji}</span>
+            <span className="text-4xl">{emoji}</span>
           </span>
         );
         
@@ -63,13 +97,32 @@ const About = () => {
       }
     });
     
-    // Add remaining text
+    // Add remaining text with proper styling
     if (lastIndex < displayedText.length) {
-      textParts.push(
-        <span key="text-end">
-          {displayedText.slice(lastIndex)}
-        </span>
-      );
+      const remainingText = displayedText.slice(lastIndex);
+      const remainingSegments = textSegments.filter(segment => segment.start >= lastIndex);
+      
+      if (remainingSegments.length > 0) {
+        remainingSegments.forEach((segment, segIndex) => {
+          const segmentText = displayedText.slice(Math.max(segment.start, lastIndex), Math.min(segment.end, displayedText.length));
+          if (segmentText) {
+            textParts.push(
+              <span 
+                key={`remaining-${segIndex}`}
+                className={segment.isGreen ? 'text-emerald-400' : ''}
+              >
+                {segmentText}
+              </span>
+            );
+          }
+        });
+      } else {
+        textParts.push(
+          <span key="text-end">
+            {remainingText}
+          </span>
+        );
+      }
     }
     
     return textParts;
@@ -78,8 +131,8 @@ const About = () => {
   return (
     <section className="section-padding bg-charcoal relative overflow-hidden">
       <div className="container-custom">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-none tracking-tight">
             {renderTextWithEmojis()}
             <span className="animate-pulse">|</span>
           </h2>
