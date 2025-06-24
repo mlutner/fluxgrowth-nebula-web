@@ -38,7 +38,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/bc1e670f-0fd4-4dde-bc6c-10a0ffa0e3d6.png" 
               alt="FluxGrowth Logo" 
-              className="h-8 w-auto"
+              className="h-32 w-auto"
             />
           </div>
 
