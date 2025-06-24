@@ -10,12 +10,6 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  const stats = [
-    { value: "1,275%", label: "Average ROI on Chatbot Implementations" },
-    { value: "45%", label: "Reduction in Operational Costs" },
-    { value: "30-Day", label: "Time-to-Value" }
-  ];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
       {/* Smaller animated multicolor orb background */}
@@ -40,8 +34,8 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline - narrower, longer typography with tighter spacing */}
-          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tight text-white mb-3 leading-[0.85] transition-all duration-1000 ${
+          {/* Main headline - extra tight spacing to match reference */}
+          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tighter text-white mb-2 leading-[0.8] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Turn AI Into Your{' '}
@@ -50,49 +44,28 @@ const Hero = () => {
             </span>
           </h1>
 
-          {/* Much smaller subheadline with reduced margin */}
-          <p className={`text-sm md:text-base text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
+          {/* Smaller subheadline with more space below */}
+          <p className={`text-xs md:text-sm text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             We help ambitious businesses harness automation, chatbots, and AI-driven growth strategies without the technical overwhelm.
           </p>
 
-          {/* CTA Buttons with custom glow effect */}
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-16 transition-all duration-1000 delay-500 ${
+          {/* CTA Buttons - subtle like reference image */}
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button 
-              className="glow-button bg-sage-green hover:bg-sage-dark text-charcoal font-medium px-10 py-6 text-lg rounded-xl transition-all duration-300 hover:-translate-y-1 group border-0"
+              className="subtle-button-primary px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
             >
-              Get Your AI Readiness Assessment
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform inline" />
+              Our services
             </button>
             <button 
-              className="glow-button-outline border-white/30 text-white hover:bg-white/5 px-10 py-6 text-lg rounded-xl transition-all duration-300 hover:border-white/50 group backdrop-blur-sm"
+              className="subtle-button-secondary px-8 py-3 text-sm rounded-lg transition-all duration-300 group"
             >
-              <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform inline" />
-              Watch Demo
+              Get in touch
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform inline" />
             </button>
-          </div>
-
-          {/* Stats */}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className="glass-charcoal rounded-2xl p-8 hover-lift group animate-on-scroll border border-white/5"
-                style={{ animationDelay: `${800 + index * 100}ms` }}
-              >
-                <div className="text-4xl md:text-5xl font-light text-sage-green mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {stat.value}
-                </div>
-                <div className="text-white/70 text-base md:text-lg leading-relaxed font-light">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

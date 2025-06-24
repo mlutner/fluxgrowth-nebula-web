@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -86,6 +87,9 @@ export default {
 			},
 			fontWeight: {
 				'extralight': '200',
+			},
+			letterSpacing: {
+				'tighter': '-0.05em',
 			},
 			keyframes: {
 				'accordion-down': {
