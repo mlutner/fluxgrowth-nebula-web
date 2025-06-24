@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { TrendingUp, Clock, DollarSign, Users, CheckCircle } from 'lucide-react';
 
@@ -192,8 +193,8 @@ const Results = () => {
                 </div>
               </div>
 
-              <button className="w-full subtle-button-secondary py-3 rounded-lg transition-all duration-300">
-                Get Started with Basic →
+              <button className="w-full animated-cta-button px-6 py-3 rounded-lg transition-all duration-300">
+                <span className="relative z-10">Get Started with Basic →</span>
               </button>
             </div>
 
@@ -242,8 +243,8 @@ const Results = () => {
                 </div>
               </div>
 
-              <button className="w-full subtle-button-primary py-3 rounded-lg transition-all duration-300">
-                Get Started with Pro →
+              <button className="w-full animated-cta-button px-6 py-3 rounded-lg transition-all duration-300">
+                <span className="relative z-10">Get Started with Pro →</span>
               </button>
             </div>
 
@@ -288,8 +289,8 @@ const Results = () => {
                 </div>
               </div>
 
-              <button className="w-full subtle-button-secondary py-3 rounded-lg transition-all duration-300">
-                Contact us →
+              <button className="w-full animated-cta-button px-6 py-3 rounded-lg transition-all duration-300">
+                <span className="relative z-10">Contact us →</span>
               </button>
             </div>
           </div>
