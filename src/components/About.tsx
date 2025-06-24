@@ -1,66 +1,66 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
-  const [visibleWords, setVisibleWords] = useState(0);
-  const [showEmojis, setShowEmojis] = useState({ first: false, second: false });
-  
+  const [isAnimating, setIsAnimating] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
   const words = [
-    { text: "We're", isGreen: false },
-    { text: "your", isGreen: false },
-    { text: "AI", isGreen: false },
-    { text: "transformation", isGreen: true },
-    { text: "partners", isGreen: false },
-    { text: "🤝", isEmoji: true, key: 'first' },
-    { text: "We", isGreen: false },
-    { text: "turn", isGreen: false },
-    { text: "complex", isGreen: false },
-    { text: "technology", isGreen: false },
-    { text: "into", isGreen: false },
-    { text: "competitive", isGreen: false },
-    { text: "💎", isEmoji: true, key: 'second' },
-    { text: "business", isGreen: true },
-    { text: "advantages.", isGreen: true }
+    { text: "We're", isGreen: false, class: "word-1" },
+    { text: "your", isGreen: false, class: "word-2" },
+    { text: "AI", isGreen: false, class: "word-3" },
+    { text: "transformation", isGreen: true, class: "word-4" },
+    { text: "partners", isGreen: false, class: "word-5" },
+    { text: "🤝", isEmoji: true, class: "animated-emoji" },
+    { text: "We", isGreen: false, class: "word-6" },
+    { text: "turn", isGreen: false, class: "word-7" },
+    { text: "complex", isGreen: false, class: "word-8" },
+    { text: "technology", isGreen: false, class: "word-9" },
+    { text: "into", isGreen: false, class: "word-10" },
+    { text: "competitive", isGreen: false, class: "word-11" },
+    { text: "💎", isEmoji: true, class: "sparkle-emoji" },
+    { text: "business", isGreen: true, class: "word-12" },
+    { text: "advantages.", isGreen: true, class: "word-13" }
   ];
-  
+
   useEffect(() => {
-    if (visibleWords < words.length) {
-      const timer = setTimeout(() => {
-        setVisibleWords(visibleWords + 1);
-        
-        // Show emojis when they become visible
-        const currentWord = words[visibleWords];
-        if (currentWord?.isEmoji) {
-          setTimeout(() => {
-            setShowEmojis(prev => ({ ...prev, [currentWord.key]: true }));
-          }, 300);
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isAnimating) {
+          setIsAnimating(true);
+          entry.target.classList.add('animate');
         }
-      }, 200); // Delay between word reveals
-      
-      return () => clearTimeout(timer);
+      });
+    }, observerOptions);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [visibleWords, words.length]);
+
+    return () => observer.disconnect();
+  }, [isAnimating]);
 
   return (
-    <section className="section-padding bg-charcoal relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className="explainer-section section-padding bg-charcoal relative overflow-hidden"
+    >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.85] tracking-tighter">
+          <p className="explainer-text text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.85] tracking-tighter">
             {words.map((word, index) => {
               if (word.isEmoji) {
                 return (
                   <span 
                     key={index}
-                    className={`inline-flex items-center justify-center w-16 h-16 mx-2 rounded-2xl transition-all duration-500 animated-word ${
-                      index < visibleWords ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                    } ${
-                      showEmojis[word.key] 
-                        ? 'bg-sage-green/20 border border-sage-green/30 scale-100' 
-                        : 'scale-0'
-                    }`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className={`${word.class} inline-flex items-center justify-center mx-2`}
                   >
-                    <span className="text-4xl">{word.text}</span>
+                    <span className="text-6xl md:text-7xl lg:text-8xl">{word.text}</span>
                   </span>
                 );
               }
@@ -68,19 +68,15 @@ const About = () => {
               return (
                 <span
                   key={index}
-                  className={`animated-word inline-block mx-1 ${
-                    index < visibleWords ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  } ${word.isGreen ? 'text-sage-green' : ''} transition-all duration-600 ease-out`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`animated-word ${word.class} inline-block mx-1 ${
+                    word.isGreen ? 'highlight-text' : ''
+                  }`}
                 >
                   {word.text}
                 </span>
               );
             })}
-            {visibleWords === words.length && (
-              <span className="animate-pulse ml-1">|</span>
-            )}
-          </h2>
+          </p>
         </div>
       </div>
       
