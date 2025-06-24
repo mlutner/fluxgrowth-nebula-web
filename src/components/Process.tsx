@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const Process = () => {
@@ -72,7 +71,7 @@ const Process = () => {
       }
     };
     
-    const apiKey = ""; // User will need to add their API key
+    const apiKey = "AIzaSyApc4zoUO-EUzKPn-5FI2pDCFdaxiSI52Q";
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
     try {
