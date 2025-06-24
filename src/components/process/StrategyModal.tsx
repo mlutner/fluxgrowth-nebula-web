@@ -70,21 +70,22 @@ const StrategyModal: React.FC<StrategyModalProps> = ({
                     padding: '16px 32px',
                     borderRadius: '12px',
                     fontSize: '1rem',
-                    fontWeight: '600',
+                    fontWeight: '400',
                     minHeight: '48px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: 'rgba(20, 20, 20, 0.8)',
-                    border: '1px solid rgba(181, 227, 192, 0.4)',
+                    background: 'rgba(20, 20, 20, 0.9)',
+                    border: '1px solid rgba(181, 227, 192, 0.6)',
                     color: '#b5e3c0',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    zIndex: '10'
                   }}
                 >
-                  Get Started Today
+                  <span style={{ position: 'relative', zIndex: '20', color: '#b5e3c0' }}>Get Started Today</span>
                 </button>
               </div>
             </>

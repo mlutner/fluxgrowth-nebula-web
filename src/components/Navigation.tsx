@@ -56,7 +56,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop CTA - Updated to new style */}
+          {/* Desktop CTA - Updated to new style with normal font weight */}
           <div className="hidden md:block">
             <button 
               className="animated-glow-cta-button px-6 py-2 rounded-lg transition-all duration-300"
@@ -67,7 +67,8 @@ const Navigation = () => {
                 color: '#b5e3c0',
                 cursor: 'pointer',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                fontWeight: '400'
               }}
             >
               <span className="relative z-10">Get Started</span>
@@ -110,7 +111,8 @@ const Navigation = () => {
                 color: '#b5e3c0',
                 cursor: 'pointer',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                fontWeight: '400'
               }}
             >
               <span className="relative z-10">Get Started</span>
