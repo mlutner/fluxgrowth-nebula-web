@@ -48,11 +48,14 @@ const About = () => {
   return (
     <section 
       ref={sectionRef}
-      className="explainer-section section-padding bg-charcoal relative overflow-hidden"
+      className="explainer-section section-padding relative overflow-hidden"
+      style={{
+        background: 'radial-gradient(ellipse at top, rgba(79, 70, 229, 0.1) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgba(0, 212, 255, 0.1) 0%, transparent 50%), radial-gradient(ellipse at center, rgba(181, 227, 192, 0.08) 0%, transparent 70%), rgb(8, 8, 8)'
+      }}
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="explainer-text text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-[0.85] tracking-tighter">
+          <p className="explainer-text text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-[0.9] tracking-tighter pb-8">
             {words.map((word, index) => {
               if (word.isEmoji) {
                 return (
