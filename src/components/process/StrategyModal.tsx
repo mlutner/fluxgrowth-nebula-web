@@ -65,36 +65,44 @@ const StrategyModal: React.FC<StrategyModalProps> = ({
                 </p>
                 <button 
                   onClick={handleGetStarted}
-                  className="animated-cta-button"
                   style={{
                     padding: '16px 32px',
                     borderRadius: '12px',
                     fontSize: '1rem',
-                    fontWeight: '500',
+                    fontWeight: '600',
                     minHeight: '48px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '8px'
+                    background: 'rgba(20, 20, 20, 0.8)',
+                    border: '1px solid rgba(181, 227, 192, 0.4)',
+                    color: '#b5e3c0',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: `
+                      0 0 20px rgba(181, 227, 192, 0.4),
+                      0 0 40px rgba(181, 227, 192, 0.2),
+                      0 0 60px rgba(181, 227, 192, 0.1)
+                    `
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `
+                      0 0 30px rgba(181, 227, 192, 0.6),
+                      0 0 60px rgba(181, 227, 192, 0.3),
+                      0 0 90px rgba(181, 227, 192, 0.15)
+                    `;
+                    e.currentTarget.style.borderColor = 'rgba(181, 227, 192, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = `
+                      0 0 20px rgba(181, 227, 192, 0.4),
+                      0 0 40px rgba(181, 227, 192, 0.2),
+                      0 0 60px rgba(181, 227, 192, 0.1)
+                    `;
+                    e.currentTarget.style.borderColor = 'rgba(181, 227, 192, 0.4)';
                   }}
                 >
-                  <span>
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                      <polyline points="15,3 21,3 21,9"/>
-                      <line x1="10" y1="14" x2="21" y2="3"/>
-                    </svg>
-                    Get Started Today
-                  </span>
+                  Get Started Today
                 </button>
               </div>
             </>
