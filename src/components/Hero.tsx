@@ -118,8 +118,8 @@ const Hero = () => {
       </div>
 
       {/* Dynamic keyframes for random dot movement */}
-      <style jsx>{`
-        ${dots.map((dot, index) => `
+      <style>
+        {dots.map((dot) => `
           @keyframes randomFloat-${dot.id} {
             0%, 100% {
               transform: translate(-50%, -50%) translateX(0px) translateY(0px);
@@ -135,7 +135,7 @@ const Hero = () => {
             }
           }
         `).join('\n')}
-      `}</style>
+      </style>
     </section>
   );
 };

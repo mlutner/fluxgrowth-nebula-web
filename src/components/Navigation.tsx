@@ -43,7 +43,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8 px-6 py-3 rounded-lg border border-sage-green/30 bg-white/5 backdrop-blur-sm">
+          <div className="hidden md:flex items-center space-x-8 px-6 py-3 rounded-lg border border-white/10 bg-black/30 backdrop-blur-sm">
             {menuItems.map((item) => (
               <a
                 key={item.name}
