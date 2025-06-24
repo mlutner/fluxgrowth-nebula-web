@@ -43,7 +43,7 @@
     rgba(0, 200, 100, 0.8) 70%,
     rgba(0, 150, 75, 0.4) 100%);
   filter: blur(50px);
-  animation: sageOrbFloat 10s ease-in-out infinite, sageOrbShift 15s linear infinite, sageOrbRotate 20s linear infinite;
+  animation: sageOrbFloat 12s ease-in-out infinite, sageOrbShift 18s ease-in-out infinite, sageOrbRotate 25s linear infinite;
   transform-origin: center;
 }
 
@@ -51,14 +51,17 @@
   0%, 100% {
     transform: translateY(0px) scale(1);
   }
-  25% {
-    transform: translateY(-15px) scale(1.05);
+  20% {
+    transform: translateY(-12px) scale(1.03);
   }
-  50% {
-    transform: translateY(10px) scale(0.98);
+  40% {
+    transform: translateY(8px) scale(0.99);
   }
-  75% {
-    transform: translateY(-8px) scale(1.02);
+  60% {
+    transform: translateY(-6px) scale(1.01);
+  }
+  80% {
+    transform: translateY(4px) scale(0.995);
   }
 }
 
