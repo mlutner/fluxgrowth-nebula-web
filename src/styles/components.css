@@ -261,8 +261,8 @@
   /* Graphic Bubble Styles for About Section */
   .graphic-bubble {
     position: relative;
-    width: 144px;
-    height: 72px;
+    width: 100px;
+    height: 50px;
     border-radius: 100px;
     overflow: hidden;
     
@@ -298,7 +298,7 @@
   }
 
   .emoji-text {
-    font-size: 42px;
+    font-size: 28px;
     position: relative;
     z-index: 2;
     margin: 0;
@@ -309,23 +309,23 @@
   /* Responsive adjustments for graphic bubbles */
   @media (max-width: 768px) {
     .graphic-bubble {
-      width: 120px;
-      height: 60px;
+      width: 80px;
+      height: 40px;
     }
     
     .emoji-text {
-      font-size: 34px;
+      font-size: 22px;
     }
   }
 
   @media (max-width: 480px) {
     .graphic-bubble {
-      width: 96px;
-      height: 48px;
+      width: 70px;
+      height: 35px;
     }
     
     .emoji-text {
-      font-size: 26px;
+      font-size: 18px;
     }
   }
 }
