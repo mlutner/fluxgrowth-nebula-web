@@ -1,0 +1,118 @@
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-charcoal {
+    @apply bg-charcoal/30 backdrop-blur-md border border-white/5;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-flux-blue via-flux-purple to-flux-green bg-clip-text text-transparent;
+  }
+
+  .sage-gradient {
+    @apply bg-gradient-to-r from-sage-light via-sage-green to-sage-dark bg-clip-text text-transparent;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .glow-border {
+    @apply border border-flux-blue/20 shadow-[0_0_20px_rgba(79,70,229,0.3)];
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Subtle button styles */
+  .subtle-button-primary {
+    background: rgba(143, 188, 143, 0.2);
+    border: 1px solid rgba(143, 188, 143, 0.3);
+    color: rgba(143, 188, 143, 1);
+    font-weight: 400;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .subtle-button-primary:hover {
+    background: rgba(143, 188, 143, 0.3);
+    border-color: rgba(143, 188, 143, 0.5);
+  }
+
+  .subtle-button-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .subtle-button-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* Custom glow button styles */
+  .glow-button {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    
+    /* The key glow effect */
+    box-shadow: 
+      0 0 20px rgba(143, 188, 143, 0.3),  /* Soft sage green glow */
+      0 0 40px rgba(143, 188, 143, 0.1),  /* Larger, more diffuse glow */
+      inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Subtle inner highlight */
+    
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 
+      0 0 30px rgba(143, 188, 143, 0.5),  /* Stronger glow on hover */
+      0 0 60px rgba(143, 188, 143, 0.2);
+  }
+
+  .glow-button-outline {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+    
+    /* Outline button glow effect */
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(143, 188, 143, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    transition: all 0.3s ease;
+  }
+
+  .glow-button-outline:hover {
+    box-shadow: 
+      0 0 25px rgba(255, 255, 255, 0.2),
+      0 0 50px rgba(143, 188, 143, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Background pattern */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
