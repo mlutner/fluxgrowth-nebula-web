@@ -40,8 +40,8 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline - narrower, longer typography */}
-          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tight text-white mb-6 leading-none transition-all duration-1000 ${
+          {/* Main headline - narrower, longer typography with tighter spacing */}
+          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tight text-white mb-3 leading-[0.85] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Turn AI Into Your{' '}
@@ -50,32 +50,29 @@ const Hero = () => {
             </span>
           </h1>
 
-          {/* Much smaller subheadline */}
-          <p className={`text-sm md:text-base text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
+          {/* Much smaller subheadline with reduced margin */}
+          <p className={`text-sm md:text-base text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             We help ambitious businesses harness automation, chatbots, and AI-driven growth strategies without the technical overwhelm.
           </p>
 
-          {/* CTA Buttons */}
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-20 transition-all duration-1000 delay-500 ${
+          {/* CTA Buttons with custom glow effect */}
+          <div className={`flex flex-col sm:flex-row gap-6 justify-center mb-16 transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Button 
-              size="lg"
-              className="bg-sage-green hover:bg-sage-dark text-charcoal font-medium px-10 py-6 text-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-sage-green/25 hover:-translate-y-1 group border-0"
+            <button 
+              className="glow-button bg-sage-green hover:bg-sage-dark text-charcoal font-medium px-10 py-6 text-lg rounded-xl transition-all duration-300 hover:-translate-y-1 group border-0"
             >
               Get Your AI Readiness Assessment
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              variant="outline"
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/5 px-10 py-6 text-lg rounded-xl transition-all duration-300 hover:border-white/50 group backdrop-blur-sm"
+              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform inline" />
+            </button>
+            <button 
+              className="glow-button-outline border-white/30 text-white hover:bg-white/5 px-10 py-6 text-lg rounded-xl transition-all duration-300 hover:border-white/50 group backdrop-blur-sm"
             >
-              <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" />
+              <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform inline" />
               Watch Demo
-            </Button>
+            </button>
           </div>
 
           {/* Stats */}

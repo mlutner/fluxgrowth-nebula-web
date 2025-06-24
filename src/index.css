@@ -148,6 +148,50 @@
   .container-custom {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Custom glow button styles */
+  .glow-button {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    
+    /* The key glow effect */
+    box-shadow: 
+      0 0 20px rgba(143, 188, 143, 0.3),  /* Soft sage green glow */
+      0 0 40px rgba(143, 188, 143, 0.1),  /* Larger, more diffuse glow */
+      inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Subtle inner highlight */
+    
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 
+      0 0 30px rgba(143, 188, 143, 0.5),  /* Stronger glow on hover */
+      0 0 60px rgba(143, 188, 143, 0.2);
+  }
+
+  .glow-button-outline {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+    
+    /* Outline button glow effect */
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(143, 188, 143, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    transition: all 0.3s ease;
+  }
+
+  .glow-button-outline:hover {
+    box-shadow: 
+      0 0 25px rgba(255, 255, 255, 0.2),
+      0 0 50px rgba(143, 188, 143, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 /* ... keep existing code (smooth scroll reveal animations) */
