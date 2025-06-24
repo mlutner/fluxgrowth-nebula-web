@@ -1,10 +1,7 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 const About = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
   const words = [
     { text: "We're", isGreen: false, class: "word-1" },
     { text: "your", isGreen: false, class: "word-2" },
@@ -23,31 +20,8 @@ const About = () => {
     { text: "advantages.", isGreen: true, class: "word-13" }
   ];
 
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !isAnimating) {
-          setIsAnimating(true);
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [isAnimating]);
-
   return (
     <section 
-      ref={sectionRef}
       className="explainer-section py-32 md:py-40 lg:py-48 relative overflow-hidden fade-in-section"
       style={{
         background: `
@@ -67,7 +41,7 @@ const About = () => {
                     <span 
                       key={index}
                       className={`${word.class} fade-in-section inline-flex items-center justify-center mx-2 md:mx-4`}
-                      style={{ transitionDelay: `${(index + 1) * 0.1}s` }}
+                      style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
                     >
                       <span className="text-5xl md:text-6xl lg:text-8xl">{word.text}</span>
                     </span>
@@ -80,7 +54,7 @@ const About = () => {
                     className={`animated-word fade-in-section ${word.class} inline-block mx-1 md:mx-2 ${
                       word.isGreen ? 'text-nebula-lime' : ''
                     }`}
-                    style={{ transitionDelay: `${(index + 1) * 0.1}s` }}
+                    style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
                   >
                     {word.text}
                   </span>
