@@ -34,8 +34,8 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline - extra tight spacing to match reference */}
-          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tighter text-white mb-2 leading-[0.8] transition-all duration-1000 ${
+          {/* Main headline - tighter spacing */}
+          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-[-0.05em] text-white mb-2 leading-[0.75] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Turn AI Into Your{' '}
