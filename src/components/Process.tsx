@@ -8,8 +8,7 @@ const Process = () => {
     {
       number: "01.",
       title: "Assess",
-      description: "We conduct a comprehensive AI readiness assessment, identifying opportunities for automation, efficiency gains, and competitive advantages specific to your business.",
-      image: "/lovable-uploads/b87fac7c-777b-468b-bdde-7d426356cd23.png"
+      description: "We conduct a comprehensive AI readiness assessment, identifying opportunities for automation, efficiency gains, and competitive advantages specific to your business."
     },
     {
       number: "02.",
@@ -53,15 +52,6 @@ const Process = () => {
             >
               <div className="step-number">{step.number}</div>
               <h3 className="step-title">{step.title}</h3>
-              {step.image && (
-                <div className="step-image mb-4">
-                  <img 
-                    src={step.image} 
-                    alt={step.title}
-                    className="w-full h-32 object-contain"
-                  />
-                </div>
-              )}
               <p className="step-description">{step.description}</p>
             </div>
           ))}
