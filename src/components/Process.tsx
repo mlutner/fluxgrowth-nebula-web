@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const Process = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -39,86 +39,9 @@ const Process = () => {
   return (
     <section id="process" className="process-section bg-charcoal">
       <div className="container-custom">
-        <h2 className="section-title">
+        <h2 className="section-title-right">
           Our <span className="highlight">process</span>
         </h2>
-        
-        <div className="mockup-container">
-          {/* Step 1: AI Assessment */}
-          <div className={`mockup-visual ${activeStep === 1 ? 'active' : ''}`}>
-            <div className="assessment-mockup">
-              <div className="toggle-section">
-                <div className="toggle-switch">
-                  <div className="toggle-circle"></div>
-                </div>
-                <span>AI Readiness</span>
-              </div>
-              <div className="assessment-options">
-                <div className="assessment-btn">Basic</div>
-                <div className="assessment-btn active">Pro</div>
-                <div className="assessment-btn">Custom</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Step 2: Strategy Development */}
-          <div className={`mockup-visual ${activeStep === 2 ? 'active' : ''}`}>
-            <div className="strategy-grid">
-              <div className="strategy-icon">🎯</div>
-              <div className="strategy-icon">🚀</div>
-              <div className="strategy-icon">⚡</div>
-              <div className="strategy-icon">📊</div>
-              <div className="strategy-icon">🔧</div>
-              <div className="strategy-icon">💡</div>
-            </div>
-          </div>
-          
-          {/* Step 3: Implementation */}
-          <div className={`mockup-visual ${activeStep === 3 ? 'active' : ''}`}>
-            <div className="code-mockup">
-              <div className="code-line">// AI Implementation Strategy</div>
-              <div className="code-line">const aiStrategy = {'{'}</div>
-              <div className="code-line">&nbsp;&nbsp;automation: 'workflow-optimized',</div>
-              <div className="code-line">&nbsp;&nbsp;chatbots: 'lead-generation',</div>
-              <div className="code-line">&nbsp;&nbsp;analytics: 'predictive-insights'</div>
-              <div className="code-line">{'};'}</div>
-              <div className="code-line"><span className="blinking-cursor">|</span></div>
-            </div>
-          </div>
-          
-          {/* Step 4: Optimization */}
-          <div className={`mockup-visual ${activeStep === 4 ? 'active' : ''}`}>
-            <div className="metrics-container">
-              <div className="metric">
-                <div className="metric-label">Efficiency</div>
-                <div className="progress-bar">
-                  <div className="progress-fill efficiency"></div>
-                </div>
-              </div>
-              <div className="metric">
-                <div className="metric-label">Accuracy</div>
-                <div className="progress-bar">
-                  <div className="progress-fill accuracy"></div>
-                </div>
-              </div>
-              <div className="metric">
-                <div className="metric-label">ROI</div>
-                <div className="progress-bar">
-                  <div className="progress-fill roi"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Step 5: Scale & Lead */}
-          <div className={`mockup-visual ${activeStep === 5 ? 'active' : ''}`}>
-            <div className="globe-container">
-              <div className="globe">
-                <div className="globe-dots"></div>
-              </div>
-            </div>
-          </div>
-        </div>
         
         <div className="process-steps">
           {steps.map((step, index) => (
