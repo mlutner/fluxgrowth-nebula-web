@@ -22,19 +22,20 @@ const About = () => {
 
   return (
     <section 
-      className="explainer-section py-16 md:py-20 lg:py-24 relative overflow-hidden fade-in-section"
+      className="explainer-section py-18 md:py-22 lg:py-26 relative overflow-hidden fade-in-section"
       style={{
         background: `
-          radial-gradient(ellipse 700px 350px at center, rgba(211, 255, 202, 0.10) 0%, transparent 60%),
-          radial-gradient(ellipse 900px 450px at center, rgba(211, 255, 202, 0.05) 0%, transparent 70%),
+          radial-gradient(ellipse 1000px 500px at center, rgba(211, 255, 202, 0.08) 0%, rgba(211, 255, 202, 0.04) 40%, rgba(211, 255, 202, 0.02) 60%, transparent 80%),
+          radial-gradient(ellipse 1200px 600px at center, rgba(211, 255, 202, 0.03) 0%, rgba(211, 255, 202, 0.015) 50%, transparent 70%),
+          linear-gradient(to bottom, rgba(8, 8, 7, 0) 0%, rgba(8, 8, 7, 0.1) 20%, rgba(8, 8, 7, 0.3) 80%, rgba(8, 8, 7, 0.6) 100%),
           transparent
         `
       }}
     >
       <div className="container-custom">
         <div className="max-w-6xl mx-auto text-center px-6 sm:px-8">
-          <div className="pb-12 pt-8">
-            <p className="explainer-text font-headline text-2xl md:text-4xl lg:text-5xl font-light text-white leading-[1.2] tracking-[-0.02em]">
+          <div className="pb-13 pt-9">
+            <p className="explainer-text font-headline text-3xl md:text-5xl lg:text-6xl font-light text-white leading-[1.2] tracking-[-0.02em]">
               {words.map((word, index) => {
                 if (word.isEmoji) {
                   return (
