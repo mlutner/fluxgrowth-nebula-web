@@ -26,3 +26,27 @@
 .fade-in-section.delay-3 {
   transition-delay: 0.3s;
 }
+
+/* Word-by-word reveal animations for About section */
+.animated-word {
+  display: inline-block;
+}
+
+/* Emoji animations - reduced movement */
+.animated-emoji.is-visible {
+  animation: gentle-bounce 3s ease-in-out 2s infinite;
+}
+
+.sparkle-emoji.is-visible {
+  animation: gentle-sparkle 2s ease-in-out 2.5s infinite alternate;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes gentle-sparkle {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+  100% { transform: scale(1.05) rotate(5deg); opacity: 1; }
+}

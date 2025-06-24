@@ -48,7 +48,7 @@ const About = () => {
   return (
     <section 
       ref={sectionRef}
-      className="explainer-section py-32 md:py-40 lg:py-48 relative overflow-hidden"
+      className="explainer-section py-32 md:py-40 lg:py-48 relative overflow-hidden fade-in-section"
       style={{
         background: `
           radial-gradient(ellipse 700px 350px at center, rgba(211, 255, 202, 0.10) 0%, transparent 60%),
@@ -66,7 +66,8 @@ const About = () => {
                   return (
                     <span 
                       key={index}
-                      className={`${word.class} inline-flex items-center justify-center mx-2 md:mx-4`}
+                      className={`${word.class} fade-in-section inline-flex items-center justify-center mx-2 md:mx-4`}
+                      style={{ transitionDelay: `${(index + 1) * 0.1}s` }}
                     >
                       <span className="text-5xl md:text-6xl lg:text-8xl">{word.text}</span>
                     </span>
@@ -76,9 +77,10 @@ const About = () => {
                 return (
                   <span
                     key={index}
-                    className={`animated-word ${word.class} inline-block mx-1 md:mx-2 ${
+                    className={`animated-word fade-in-section ${word.class} inline-block mx-1 md:mx-2 ${
                       word.isGreen ? 'text-nebula-lime' : ''
                     }`}
+                    style={{ transitionDelay: `${(index + 1) * 0.1}s` }}
                   >
                     {word.text}
                   </span>
