@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const Process = () => {
@@ -188,6 +187,18 @@ const Process = () => {
     }
   };
 
+  const handleGetStarted = () => {
+    hideModal();
+    // Scroll to the contact section or trigger contact form
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If no contact section, you could open a contact modal or navigate to contact page
+      window.location.href = '#contact';
+    }
+  };
+
   return (
     <>
       <section id="process" className="process-section-enhanced-v2 bg-charcoal">
@@ -273,6 +284,39 @@ const Process = () => {
                       <p>{item.benefit}</p>
                     </div>
                   ))}
+                  <div className="cta-section-enhanced" style={{ marginTop: '30px', textAlign: 'center', borderTop: '1px solid #232323', paddingTop: '25px' }}>
+                    <p style={{ fontFamily: 'Inter Tight, sans-serif', color: '#858585', marginBottom: '20px', fontSize: '1rem' }}>
+                      Ready to turn this strategy into reality? Let's discuss how we can implement these AI solutions for your business.
+                    </p>
+                    <button 
+                      className="cta-btn-enhanced"
+                      onClick={handleGetStarted}
+                      style={{
+                        backgroundColor: 'rgb(211, 255, 202)',
+                        color: '#080807',
+                        fontFamily: 'Space Grotesk, sans-serif',
+                        fontWeight: '700',
+                        fontSize: '1rem',
+                        border: 'none',
+                        borderRadius: '8px',
+                        padding: '14px 28px',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        textDecoration: 'none',
+                        display: 'inline-block'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#ffffff';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'rgb(211, 255, 202)';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }}
+                    >
+                      Get Started Today
+                    </button>
+                  </div>
                 </>
               ) : (
                 <p>No strategy could be generated. Please try a different query.</p>
