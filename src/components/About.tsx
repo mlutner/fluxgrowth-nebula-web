@@ -50,20 +50,21 @@ const About = () => {
       ref={sectionRef}
       className="explainer-section section-padding relative overflow-hidden"
       style={{
-        background: 'radial-gradient(ellipse at top, rgba(79, 70, 229, 0.1) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgba(0, 212, 255, 0.1) 0%, transparent 50%), radial-gradient(ellipse at center, rgba(181, 227, 192, 0.08) 0%, transparent 70%), rgb(8, 8, 8)'
+        background: 'transparent',
+        boxShadow: '0 0 100px rgba(181, 227, 192, 0.15), 0 0 200px rgba(181, 227, 192, 0.08)'
       }}
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="explainer-text text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-[0.9] tracking-tighter pb-8">
+          <p className="explainer-text text-4xl md:text-6xl lg:text-7xl font-medium text-white leading-[1.1] tracking-tighter pb-8 px-4">
             {words.map((word, index) => {
               if (word.isEmoji) {
                 return (
                   <span 
                     key={index}
-                    className={`${word.class} inline-flex items-center justify-center mx-6`}
+                    className={`${word.class} inline-flex items-center justify-center mx-3 md:mx-6`}
                   >
-                    <span className="text-6xl md:text-7xl lg:text-8xl">{word.text}</span>
+                    <span className="text-5xl md:text-6xl lg:text-7xl">{word.text}</span>
                   </span>
                 );
               }
@@ -71,7 +72,7 @@ const About = () => {
               return (
                 <span
                   key={index}
-                  className={`animated-word ${word.class} inline-block mx-4 ${
+                  className={`animated-word ${word.class} inline-block mx-2 md:mx-4 ${
                     word.isGreen ? 'highlight-text' : ''
                   }`}
                 >
@@ -83,8 +84,8 @@ const About = () => {
         </div>
       </div>
       
-      {/* Subtle background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-900/5 to-transparent"></div>
+      {/* Subtle green glow overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-900/10 to-transparent pointer-events-none"></div>
     </section>
   );
 };
