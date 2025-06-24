@@ -1,4 +1,3 @@
-
 @layer components {
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
@@ -108,6 +107,76 @@
       0 0 25px rgba(255, 255, 255, 0.2),
       0 0 50px rgba(168, 213, 186, 0.15);
     border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Animated CTA Button */
+  .animated-cta-button {
+    position: relative;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 500;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .animated-cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(168, 213, 186, 0.1) 90deg,
+      rgba(168, 213, 186, 0.2) 180deg,
+      rgba(168, 213, 186, 0.1) 270deg,
+      transparent 360deg
+    );
+    animation: rotate-gradient 4s linear infinite;
+    z-index: 1;
+  }
+
+  .animated-cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: inherit;
+    z-index: 2;
+  }
+
+  .animated-cta-button:hover::before {
+    background: conic-gradient(
+      from 0deg,
+      rgba(168, 213, 186, 0.1) 0deg,
+      rgba(168, 213, 186, 0.3) 90deg,
+      rgba(168, 213, 186, 0.4) 180deg,
+      rgba(168, 213, 186, 0.3) 270deg,
+      rgba(168, 213, 186, 0.1) 360deg
+    );
+  }
+
+  .animated-cta-button:hover {
+    box-shadow: 
+      0 0 20px rgba(168, 213, 186, 0.3),
+      0 0 40px rgba(168, 213, 186, 0.1);
+  }
+
+  .animated-cta-button span {
+    position: relative;
+    z-index: 10;
+  }
+
+  @keyframes rotate-gradient {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
 

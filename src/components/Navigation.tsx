@@ -58,12 +58,12 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button 
-              className="bg-flux-blue hover:bg-flux-blue/90 text-flux-dark font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-flux-blue/25"
+            <button 
+              className="animated-cta-button px-6 py-2 rounded-lg transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Get Started
-            </Button>
+              <span className="relative z-10">Get Started</span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
