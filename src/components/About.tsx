@@ -22,25 +22,25 @@ const About = () => {
 
   return (
     <section 
-      className="explainer-section py-32 md:py-40 lg:py-48 relative overflow-hidden fade-in-section"
+      className="explainer-section py-24 md:py-32 lg:py-36 relative overflow-hidden fade-in-section"
       style={{
         background: `
-          radial-gradient(ellipse 700px 350px at center, rgba(211, 255, 202, 0.10) 0%, transparent 60%),
-          radial-gradient(ellipse 900px 450px at center, rgba(211, 255, 202, 0.05) 0%, transparent 70%),
+          radial-gradient(ellipse 600px 300px at center, rgba(211, 255, 202, 0.10) 0%, transparent 60%),
+          radial-gradient(ellipse 800px 400px at center, rgba(211, 255, 202, 0.05) 0%, transparent 70%),
           transparent
         `
       }}
     >
       <div className="container-custom">
-        <div className="max-w-7xl mx-auto text-center px-6 sm:px-8">
-          <div className="pb-20 pt-12">
-            <p className="explainer-text font-headline text-5xl md:text-7xl lg:text-9xl font-light text-white leading-[1.2] tracking-[-0.02em]">
+        <div className="max-w-6xl mx-auto text-center px-6 sm:px-8">
+          <div className="pb-16 pt-8">
+            <p className="explainer-text font-headline text-4xl md:text-6xl lg:text-7xl font-light text-white leading-[1.2] tracking-[-0.02em]">
               {words.map((word, index) => {
                 if (word.isEmoji) {
                   return (
                     <span 
                       key={index}
-                      className={`${word.class} fade-in-section inline-flex items-center justify-center mx-2 md:mx-4`}
+                      className={`${word.class} fade-in-section inline-flex items-center justify-center mx-2 md:mx-3`}
                       style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
                     >
                       <div className="graphic-bubble">
