@@ -48,26 +48,27 @@ const About = () => {
   return (
     <section 
       ref={sectionRef}
-      className="explainer-section section-padding relative overflow-hidden"
+      className="explainer-section py-24 md:py-32 lg:py-40 relative overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 800px 400px at center, rgba(181, 227, 192, 0.03) 0%, transparent 50%),
-          radial-gradient(ellipse 1200px 600px at center, rgba(181, 227, 192, 0.02) 0%, transparent 60%),
+          radial-gradient(ellipse 1000px 500px at center, rgba(181, 227, 192, 0.08) 0%, transparent 50%),
+          radial-gradient(ellipse 1400px 700px at center, rgba(181, 227, 192, 0.05) 0%, transparent 60%),
+          radial-gradient(ellipse 1800px 900px at center, rgba(181, 227, 192, 0.03) 0%, transparent 70%),
           transparent
         `
       }}
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="explainer-text text-4xl md:text-6xl lg:text-7xl font-medium text-white leading-[1.1] tracking-tighter pb-8 px-4">
+          <p className="explainer-text text-4xl md:text-6xl lg:text-8xl font-medium text-white leading-[1.1] tracking-tighter pb-8 px-4">
             {words.map((word, index) => {
               if (word.isEmoji) {
                 return (
                   <span 
                     key={index}
-                    className={`${word.class} inline-flex items-center justify-center mx-3 md:mx-6`}
+                    className={`${word.class} inline-flex items-center justify-center mx-2 md:mx-4`}
                   >
-                    <span className="text-5xl md:text-6xl lg:text-7xl">{word.text}</span>
+                    <span className="text-5xl md:text-6xl lg:text-8xl">{word.text}</span>
                   </span>
                 );
               }
@@ -75,7 +76,7 @@ const About = () => {
               return (
                 <span
                   key={index}
-                  className={`animated-word ${word.class} inline-block mx-2 md:mx-4 ${
+                  className={`animated-word ${word.class} inline-block mx-1 md:mx-2 ${
                     word.isGreen ? 'highlight-text' : ''
                   }`}
                 >
