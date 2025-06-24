@@ -34,8 +34,8 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline - larger text */}
-          <h1 className={`text-7xl md:text-9xl lg:text-[12rem] font-extralight tracking-[-0.05em] text-white mb-8 leading-[0.75] transition-all duration-1000 ${
+          {/* Main headline - reverted to previous size */}
+          <h1 className={`text-6xl md:text-8xl lg:text-9xl font-extralight tracking-[-0.05em] text-white mb-8 leading-[0.75] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Turn AI Into Your{' '}
