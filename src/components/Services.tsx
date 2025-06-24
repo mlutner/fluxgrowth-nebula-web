@@ -6,80 +6,160 @@ const Services = () => {
   const services = [
     {
       icon: Brain,
-      title: "AI Strategy & Roadmapping",
-      description: "Custom AI implementation plans tailored to your business goals and technical capabilities."
-    },
-    {
-      icon: Zap,
-      title: "Intelligent Automation",
-      description: "Streamline operations with smart automation that learns and adapts to your workflows."
+      title: "Workflow automations",
+      description: "We automate your workflows by connecting your favourite applications. Boosting efficiency and enhancing productivity.",
+      mockup: "workflow"
     },
     {
       icon: MessageSquare,
-      title: "Chatbot Development & Optimization",
-      description: "Deploy conversational AI that handles customer inquiries 24/7 with human-like precision."
+      title: "Chatbot development",
+      description: "We develop advanced chatbots that are reactive, understand nuances, and are capable of solving extremely complicated queries.",
+      mockup: "chatbot"
     },
     {
       icon: Target,
-      title: "AI-Powered Lead Generation",
-      description: "Identify and qualify high-value prospects using predictive analytics and machine learning."
-    },
-    {
-      icon: Cog,
-      title: "Sales Process Automation",
-      description: "Automate your entire sales funnel from lead capture to deal closure."
-    },
-    {
-      icon: GraduationCap,
-      title: "Education & Change Management",
-      description: "Train your team and ensure smooth adoption of AI solutions across your organization."
+      title: "Business consulting",
+      description: "Using our expertise, we delve deep into your organisation and consult you on how AI-driven automations could enhance your operations.",
+      mockup: "consulting"
     }
   ];
+
+  const WorkflowMockup = () => (
+    <div className="space-y-3">
+      <div className="flex items-center space-x-3 bg-white/5 p-3 rounded-lg border border-white/10">
+        <div className="w-8 h-8 bg-[#a8d5ba] rounded flex items-center justify-center">
+          <span className="text-charcoal text-xs font-semibold">F</span>
+        </div>
+        <div>
+          <div className="text-white text-sm font-medium">Framer</div>
+          <div className="text-white/60 text-xs">New contact form submission</div>
+        </div>
+        <div className="ml-auto w-6 h-6 bg-[#a8d5ba] rounded-full flex items-center justify-center">
+          <span className="text-charcoal text-xs">+</span>
+        </div>
+      </div>
+      
+      <div className="flex items-center space-x-3 bg-white/5 p-3 rounded-lg border border-white/10">
+        <div className="w-8 h-8 bg-[#a8d5ba] rounded flex items-center justify-center">
+          <span className="text-charcoal text-xs font-semibold">A</span>
+        </div>
+        <div>
+          <div className="text-white text-sm font-medium">Airtable</div>
+          <div className="text-white/60 text-xs">Add data to Airtable</div>
+        </div>
+        <div className="ml-auto w-6 h-6 bg-[#a8d5ba] rounded-full flex items-center justify-center">
+          <span className="text-charcoal text-xs">+</span>
+        </div>
+      </div>
+      
+      <div className="flex items-center space-x-3 bg-white/5 p-3 rounded-lg border border-white/10">
+        <div className="w-8 h-8 bg-[#a8d5ba] rounded flex items-center justify-center">
+          <span className="text-charcoal text-xs font-semibold">O</span>
+        </div>
+        <div>
+          <div className="text-white text-sm font-medium">OpenAI</div>
+          <div className="text-white/60 text-xs">Write personalised message</div>
+        </div>
+        <div className="ml-auto w-6 h-6 bg-[#a8d5ba] rounded-full flex items-center justify-center">
+          <span className="text-charcoal text-xs">+</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  const ChatbotMockup = () => (
+    <div className="space-y-4">
+      <div className="flex items-start space-x-3">
+        <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+          <span className="text-white text-xs">SS</span>
+        </div>
+        <div>
+          <div className="text-white text-sm font-medium">Siena Sinner</div>
+          <div className="text-white/60 text-xs">Summarize this report</div>
+        </div>
+      </div>
+      
+      <div className="flex items-start space-x-3">
+        <div className="w-8 h-8 bg-[#a8d5ba] rounded flex items-center justify-center">
+          <span className="text-charcoal text-xs font-bold">AI</span>
+        </div>
+        <div className="flex-1">
+          <div className="text-white text-sm font-medium">AI assistant</div>
+          <div className="text-white/60 text-xs">Sure, here's a summary:</div>
+          <div className="mt-2 p-2 bg-white/5 rounded border border-white/10">
+            <div className="w-4 h-4 text-white/60">▶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const ConsultingMockup = () => (
+    <div className="relative">
+      <div className="absolute top-2 right-2 bg-[#a8d5ba] text-charcoal px-2 py-1 rounded text-xs font-semibold">
+        +15%
+      </div>
+      <svg viewBox="0 0 200 100" className="w-full h-20">
+        <path
+          d="M 10,80 Q 50,20 100,40 T 190,30"
+          stroke="#a8d5ba"
+          strokeWidth="2"
+          fill="none"
+          className="opacity-80"
+        />
+        <path
+          d="M 10,85 Q 50,45 100,50 T 190,40"
+          stroke="#8fbc8f"
+          strokeWidth="1.5"
+          fill="none"
+          className="opacity-60"
+        />
+      </svg>
+    </div>
+  );
+
+  const renderMockup = (type: string) => {
+    switch (type) {
+      case "workflow":
+        return <WorkflowMockup />;
+      case "chatbot":
+        return <ChatbotMockup />;
+      case "consulting":
+        return <ConsultingMockup />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <section id="services" className="section-padding bg-charcoal">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 animate-on-scroll">
-            How We Accelerate Your{' '}
-            <span className="bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent">
-              Growth
-            </span>
+        <div className="text-left mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6">
+            Our services
           </h2>
-          <p className="text-xl text-white/60 max-w-3xl mx-auto animate-on-scroll font-light">
-            Comprehensive AI solutions designed to transform your business operations and drive measurable results.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
               className="group glass-charcoal rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/10 hover:border-[#a8d5ba]/30 animate-on-scroll"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#a8d5ba] to-[#8fbc8f] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="w-8 h-8 text-charcoal" />
+              {/* Mockup Section */}
+              <div className="mb-8 h-32 bg-white/5 rounded-xl p-4 border border-white/10">
+                {renderMockup(service.mockup)}
               </div>
               
-              <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-[#a8d5ba] transition-colors duration-300">
+              <h3 className="text-2xl font-normal text-white mb-4 group-hover:text-[#a8d5ba] transition-colors duration-300">
                 {service.title}
               </h3>
               
               <p className="text-white/70 leading-relaxed font-light">
                 {service.description}
               </p>
-
-              <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-full h-1 bg-gradient-to-r from-[#a8d5ba] to-[#8fbc8f] rounded-full"></div>
-              </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-16 animate-on-scroll">
-          <button className="subtle-button-primary px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#a8d5ba]/25 hover:-translate-y-1">
-            Explore All Services
-          </button>
         </div>
       </div>
     </section>
