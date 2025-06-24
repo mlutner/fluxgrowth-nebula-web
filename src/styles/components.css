@@ -1,3 +1,4 @@
+
 @layer components {
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
@@ -259,8 +260,8 @@
   /* Graphic Bubble Styles for About Section */
   .graphic-bubble {
     position: relative;
-    width: 150px;
-    height: 75px;
+    width: 120px;
+    height: 60px;
     border-radius: 100px;
     overflow: hidden;
     
@@ -296,7 +297,7 @@
   }
 
   .emoji-text {
-    font-size: 45px;
+    font-size: 35px;
     position: relative;
     z-index: 2;
     margin: 0;
@@ -307,23 +308,23 @@
   /* Responsive adjustments for graphic bubbles */
   @media (max-width: 768px) {
     .graphic-bubble {
-      width: 120px;
-      height: 60px;
-    }
-    
-    .emoji-text {
-      font-size: 35px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .graphic-bubble {
       width: 100px;
       height: 50px;
     }
     
     .emoji-text {
       font-size: 28px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .graphic-bubble {
+      width: 80px;
+      height: 40px;
+    }
+    
+    .emoji-text {
+      font-size: 22px;
     }
   }
 }

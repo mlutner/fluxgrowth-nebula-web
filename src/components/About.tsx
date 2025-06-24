@@ -22,7 +22,7 @@ const About = () => {
 
   return (
     <section 
-      className="explainer-section py-32 md:py-40 lg:py-48 relative overflow-hidden fade-in-section"
+      className="explainer-section py-16 md:py-20 lg:py-24 relative overflow-hidden fade-in-section"
       style={{
         background: `
           radial-gradient(ellipse 700px 350px at center, rgba(211, 255, 202, 0.10) 0%, transparent 60%),
@@ -32,9 +32,9 @@ const About = () => {
       }}
     >
       <div className="container-custom">
-        <div className="max-w-7xl mx-auto text-center px-6 sm:px-8">
-          <div className="pb-20 pt-12">
-            <p className="explainer-text font-headline text-5xl md:text-7xl lg:text-9xl font-light text-white leading-[1.2] tracking-[-0.02em]">
+        <div className="max-w-6xl mx-auto text-center px-6 sm:px-8">
+          <div className="pb-12 pt-8">
+            <p className="explainer-text font-headline text-3xl md:text-5xl lg:text-7xl font-light text-white leading-[1.2] tracking-[-0.02em]">
               {words.map((word, index) => {
                 if (word.isEmoji) {
                   return (
