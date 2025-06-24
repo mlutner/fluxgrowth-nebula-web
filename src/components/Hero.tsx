@@ -10,15 +10,15 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  // Generate random dots with varying properties
+  // Generate random dots with varying properties - increased count and smaller size
   const generateDots = () => {
     const dots = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 40; i++) { // Increased from 20 to 40
       dots.push({
         id: i,
         left: Math.random() * 100,
         top: Math.random() * 100,
-        size: Math.random() * 4 + 2, // 2-6px
+        size: Math.random() * 2.4 + 1.2, // Decreased by 40%: 1.2-3.6px (was 2-6px)
         delay: Math.random() * 10,
         duration: Math.random() * 15 + 10, // 10-25s
         opacity: Math.random() * 0.6 + 0.2, // 0.2-0.8
@@ -112,12 +112,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-1 h-20 bg-gradient-to-b from-[#a8d5ba] to-transparent rounded-full"></div>
-      </div>
-
-      {/* Dynamic keyframes for random dot movement */}
+      {/* Dynamic keyframes for random dot movement - more chaotic movement */}
       <style>
         {dots.map((dot) => `
           @keyframes randomFloat-${dot.id} {
@@ -125,13 +120,13 @@ const Hero = () => {
               transform: translate(-50%, -50%) translateX(0px) translateY(0px);
             }
             25% {
-              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 100}px) translateY(${(Math.random() - 0.5) * 100}px);
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 150}px) translateY(${(Math.random() - 0.5) * 150}px);
             }
             50% {
-              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 80}px) translateY(${(Math.random() - 0.5) * 80}px);
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 120}px) translateY(${(Math.random() - 0.5) * 120}px);
             }
             75% {
-              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 120}px) translateY(${(Math.random() - 0.5) * 120}px);
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 180}px) translateY(${(Math.random() - 0.5) * 180}px);
             }
           }
         `).join('\n')}
