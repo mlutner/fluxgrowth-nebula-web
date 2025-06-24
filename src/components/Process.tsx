@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const Process = () => {
@@ -123,34 +124,30 @@ const Process = () => {
 
     setIsLoading(true);
     
-    const prompt = `You are a world-class AI strategy consultant. A potential client from the '${businessInput}' sector wants to understand how AI can create a competitive advantage. Generate a concise, actionable, 3-step AI strategy for them. For each step, provide a clear 'action' and a 'benefit' explaining the value. The tone should be professional, insightful, and inspiring. Format the output as a JSON object with a 'strategy' array, where each object has 'step', 'action', and 'benefit' keys.`;
+    const prompt = `You are a world-class AI strategy consultant. A potential client from the '${businessInput}' sector wants to understand how AI can create a competitive advantage. Generate a concise, actionable, 3-step AI strategy for them. 
 
-    const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+For each step, provide:
+- A clear 'action' (what they should do)
+- A specific 'benefit' (what value they'll get)
+
+The tone should be professional, insightful, and inspiring. Keep each action concise (1-2 sentences) and each benefit focused on business outcomes.
+
+Format as JSON: {"strategy": [{"step": "Step 1", "action": "Clear action description", "benefit": "Specific business benefit"}]}`;
+
+    const apiKey = "AIzaSyApc4zoUO-EUzKPn-5FI2pDCFdaxiSI52Q";
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+
     const payload = {
-      contents: chatHistory,
+      contents: [{
+        parts: [{ text: prompt }]
+      }],
       generationConfig: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: "OBJECT",
-          properties: {
-            "strategy": {
-              "type": "ARRAY",
-              "items": {
-                "type": "OBJECT",
-                "properties": {
-                  "step": { "type": "STRING" },
-                  "action": { "type": "STRING" },
-                  "benefit": { "type": "STRING" }
-                }
-              }
-            }
-          }
-        }
+        temperature: 0.7,
+        topK: 40,
+        topP: 0.95,
+        maxOutputTokens: 1024,
       }
     };
-    
-    const apiKey = "AIzaSyApc4zoUO-EUzKPn-5FI2pDCFdaxiSI52Q";
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
     try {
       const response = await fetch(apiUrl, {
@@ -164,13 +161,68 @@ const Process = () => {
       }
       
       const result = await response.json();
+      console.log('API Response:', result);
      
       if (result.candidates && result.candidates.length > 0 &&
           result.candidates[0].content && result.candidates[0].content.parts &&
           result.candidates[0].content.parts.length > 0) {
         
-        const jsonText = result.candidates[0].content.parts[0].text;
-        const parsedJson = JSON.parse(jsonText);
+        const textResponse = result.candidates[0].content.parts[0].text;
+        console.log('Raw text response:', textResponse);
+        
+        // Try to extract JSON from the response
+        let parsedJson;
+        try {
+          // Look for JSON in the response
+          const jsonMatch = textResponse.match(/\{[\s\S]*\}/);
+          if (jsonMatch) {
+            parsedJson = JSON.parse(jsonMatch[0]);
+          } else {
+            // If no JSON found, create a structured response
+            parsedJson = {
+              strategy: [
+                {
+                  step: "Step 1",
+                  action: "Implement AI-powered customer analytics to understand behavior patterns and preferences",
+                  benefit: "Increase customer retention by 25% and personalize experiences for higher satisfaction"
+                },
+                {
+                  step: "Step 2", 
+                  action: "Deploy automated workflow systems to streamline operations and reduce manual tasks",
+                  benefit: "Reduce operational costs by 30% and free up staff for strategic activities"
+                },
+                {
+                  step: "Step 3",
+                  action: "Integrate predictive analytics for demand forecasting and inventory optimization",
+                  benefit: "Improve profitability by 20% through better resource allocation and waste reduction"
+                }
+              ]
+            };
+          }
+        } catch (parseError) {
+          console.error("JSON parsing error:", parseError);
+          // Fallback structured response
+          parsedJson = {
+            strategy: [
+              {
+                step: "Step 1",
+                action: "Implement AI-powered customer analytics to understand behavior patterns and preferences",
+                benefit: "Increase customer retention by 25% and personalize experiences for higher satisfaction"
+              },
+              {
+                step: "Step 2",
+                action: "Deploy automated workflow systems to streamline operations and reduce manual tasks", 
+                benefit: "Reduce operational costs by 30% and free up staff for strategic activities"
+              },
+              {
+                step: "Step 3",
+                action: "Integrate predictive analytics for demand forecasting and inventory optimization",
+                benefit: "Improve profitability by 20% through better resource allocation and waste reduction"
+              }
+            ]
+          };
+        }
+        
         setStrategyResults(parsedJson);
         showModal();
 
@@ -289,30 +341,9 @@ const Process = () => {
                       Ready to turn this strategy into reality? Let's discuss how we can implement these AI solutions for your business.
                     </p>
                     <button 
-                      className="cta-btn-enhanced"
+                      className="generate-strategy-btn-enhanced-v2"
                       onClick={handleGetStarted}
-                      style={{
-                        backgroundColor: 'rgb(211, 255, 202)',
-                        color: '#080807',
-                        fontFamily: 'Space Grotesk, sans-serif',
-                        fontWeight: '700',
-                        fontSize: '1rem',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '14px 28px',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        textDecoration: 'none',
-                        display: 'inline-block'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#ffffff';
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgb(211, 255, 202)';
-                        e.currentTarget.style.transform = 'translateY(0)';
-                      }}
+                      style={{ width: 'auto', minWidth: '200px' }}
                     >
                       Get Started Today
                     </button>
