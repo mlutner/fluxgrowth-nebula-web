@@ -39,7 +39,7 @@ const Process = () => {
   return (
     <section id="process" className="process-section bg-charcoal">
       <div className="container-custom">
-        <h2 className="section-title-left">
+        <h2 className="process-title">
           Our <span className="highlight">process</span>
         </h2>
         

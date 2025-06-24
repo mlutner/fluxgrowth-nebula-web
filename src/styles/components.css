@@ -1,3 +1,4 @@
+
 @layer components {
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
@@ -16,7 +17,7 @@
   }
 
   .sage-gradient {
-    @apply bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#9dd3a8] via-[#9dd3a8] to-[#9dd3a8] bg-clip-text text-transparent;
   }
 
   .hover-lift {
@@ -74,7 +75,7 @@
 
   /* Highlighted text effect - no underline */
   .highlight-text {
-    background: linear-gradient(135deg, #a8d5ba, #8fbc8f);
+    background: linear-gradient(135deg, #9dd3a8, #85c490);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -114,17 +115,17 @@
 
   /* Subtle button styles */
   .subtle-button-primary {
-    background: rgba(168, 213, 186, 0.2);
-    border: 1px solid rgba(168, 213, 186, 0.3);
-    color: rgba(168, 213, 186, 1);
+    background: rgba(157, 211, 168, 0.2);
+    border: 1px solid rgba(157, 211, 168, 0.3);
+    color: rgba(157, 211, 168, 1);
     font-weight: 400;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
   }
 
   .subtle-button-primary:hover {
-    background: rgba(168, 213, 186, 0.3);
-    border-color: rgba(168, 213, 186, 0.5);
+    background: rgba(157, 211, 168, 0.3);
+    border-color: rgba(157, 211, 168, 0.5);
   }
 
   .subtle-button-secondary {
@@ -151,8 +152,8 @@
     
     /* The key glow effect */
     box-shadow: 
-      0 0 20px rgba(168, 213, 186, 0.3),  /* Updated sage green glow */
-      0 0 40px rgba(168, 213, 186, 0.1),  /* Larger, more diffuse glow */
+      0 0 20px rgba(157, 211, 168, 0.3),  /* Updated lighter sage green glow */
+      0 0 40px rgba(157, 211, 168, 0.1),  /* Larger, more diffuse glow */
       inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Subtle inner highlight */
     
     transition: all 0.3s ease;
@@ -160,8 +161,8 @@
 
   .glow-button:hover {
     box-shadow: 
-      0 0 30px rgba(168, 213, 186, 0.5),  /* Stronger glow on hover */
-      0 0 60px rgba(168, 213, 186, 0.2);
+      0 0 30px rgba(157, 211, 168, 0.5),  /* Stronger glow on hover */
+      0 0 60px rgba(157, 211, 168, 0.2);
   }
 
   .glow-button-outline {
@@ -173,7 +174,7 @@
     /* Outline button glow effect */
     box-shadow: 
       0 0 20px rgba(255, 255, 255, 0.1),
-      0 0 40px rgba(168, 213, 186, 0.05),
+      0 0 40px rgba(157, 211, 168, 0.05),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
     transition: all 0.3s ease;
@@ -182,7 +183,7 @@
   .glow-button-outline:hover {
     box-shadow: 
       0 0 25px rgba(255, 255, 255, 0.2),
-      0 0 50px rgba(168, 213, 186, 0.15);
+      0 0 50px rgba(157, 211, 168, 0.15);
     border-color: rgba(255, 255, 255, 0.5);
   }
 
@@ -207,9 +208,9 @@
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      rgba(168, 213, 186, 0.1) 90deg,
-      rgba(168, 213, 186, 0.2) 180deg,
-      rgba(168, 213, 186, 0.1) 270deg,
+      rgba(157, 211, 168, 0.1) 90deg,
+      rgba(157, 211, 168, 0.2) 180deg,
+      rgba(157, 211, 168, 0.1) 270deg,
       transparent 360deg
     );
     animation: rotate-gradient 4s linear infinite;
@@ -228,18 +229,18 @@
   .animated-cta-button:hover::before {
     background: conic-gradient(
       from 0deg,
-      rgba(168, 213, 186, 0.1) 0deg,
-      rgba(168, 213, 186, 0.3) 90deg,
-      rgba(168, 213, 186, 0.4) 180deg,
-      rgba(168, 213, 186, 0.3) 270deg,
-      rgba(168, 213, 186, 0.1) 360deg
+      rgba(157, 211, 168, 0.1) 0deg,
+      rgba(157, 211, 168, 0.3) 90deg,
+      rgba(157, 211, 168, 0.4) 180deg,
+      rgba(157, 211, 168, 0.3) 270deg,
+      rgba(157, 211, 168, 0.1) 360deg
     );
   }
 
   .animated-cta-button:hover {
     box-shadow: 
-      0 0 20px rgba(168, 213, 186, 0.3),
-      0 0 40px rgba(168, 213, 186, 0.1);
+      0 0 20px rgba(157, 211, 168, 0.3),
+      0 0 40px rgba(157, 211, 168, 0.1);
   }
 
   .animated-cta-button span {
@@ -286,8 +287,8 @@
   color: white;
 }
 
-.section-title-left {
-  font-size: clamp(31px, 5.2vw, 78px);
+.process-title {
+  font-size: clamp(48px, 8vw, 120px);
   font-weight: 300;
   text-align: left;
   margin-bottom: 6rem;
@@ -296,8 +297,8 @@
 
 .section-title .highlight,
 .section-title-right .highlight,
-.section-title-left .highlight {
-  background: linear-gradient(135deg, #8fbc8f, #a8d5ba);
+.process-title .highlight {
+  background: linear-gradient(135deg, #9dd3a8, #85c490);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
@@ -322,7 +323,7 @@
 .process-step:hover,
 .process-step.active {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(143, 188, 143, 0.3);
+  border-color: rgba(157, 211, 168, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
@@ -330,7 +331,7 @@
 .step-number {
   font-size: 2rem;
   font-weight: 700;
-  color: #8fbc8f;
+  color: #9dd3a8;
   margin-bottom: 1rem;
 }
 
@@ -357,7 +358,7 @@
   
   .section-title,
   .section-title-right,
-  .section-title-left {
+  .process-title {
     font-size: 3rem;
     text-align: center;
   }
