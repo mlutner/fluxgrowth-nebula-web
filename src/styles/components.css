@@ -286,8 +286,17 @@
   color: white;
 }
 
+.section-title-left {
+  font-size: clamp(31px, 5.2vw, 78px);
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 6rem;
+  color: white;
+}
+
 .section-title .highlight,
-.section-title-right .highlight {
+.section-title-right .highlight,
+.section-title-left .highlight {
   background: linear-gradient(135deg, #8fbc8f, #a8d5ba);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -321,7 +330,7 @@
 .step-number {
   font-size: 2rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.3);
+  color: #8fbc8f;
   margin-bottom: 1rem;
 }
 
@@ -347,7 +356,8 @@
   }
   
   .section-title,
-  .section-title-right {
+  .section-title-right,
+  .section-title-left {
     font-size: 3rem;
     text-align: center;
   }
