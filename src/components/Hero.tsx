@@ -10,6 +10,26 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
+  // Generate random dots with varying properties
+  const generateDots = () => {
+    const dots = [];
+    for (let i = 0; i < 20; i++) {
+      dots.push({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() * 4 + 2, // 2-6px
+        delay: Math.random() * 10,
+        duration: Math.random() * 15 + 10, // 10-25s
+        opacity: Math.random() * 0.6 + 0.2, // 0.2-0.8
+        colorVariant: Math.random() > 0.5 ? 'sage' : 'white'
+      });
+    }
+    return dots;
+  };
+
+  const [dots] = useState(generateDots);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
       {/* Smaller animated multicolor orb background */}
@@ -22,7 +42,7 @@ const Hero = () => {
       {/* Subtle overlay for text readability */}
       <div className="absolute inset-0 bg-charcoal/20"></div>
 
-      {/* Floating particles */}
+      {/* Original floating particles */}
       <div className="particles absolute inset-0">
         <div className="particle"></div>
         <div className="particle"></div>
@@ -30,6 +50,28 @@ const Hero = () => {
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>
+      </div>
+
+      {/* New random moving dots */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {dots.map((dot) => (
+          <div
+            key={dot.id}
+            className="absolute rounded-full animate-pulse"
+            style={{
+              left: `${dot.left}%`,
+              top: `${dot.top}%`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`,
+              backgroundColor: dot.colorVariant === 'sage' ? '#a8d5ba' : '#f8fafc',
+              opacity: dot.opacity,
+              animationDelay: `${dot.delay}s`,
+              animationDuration: `${dot.duration}s`,
+              transform: 'translate(-50%, -50%)',
+              animation: `randomFloat-${dot.id} ${dot.duration}s ease-in-out ${dot.delay}s infinite`
+            }}
+          />
+        ))}
       </div>
 
       <div className="container-custom relative z-10">
@@ -74,6 +116,26 @@ const Hero = () => {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-1 h-20 bg-gradient-to-b from-[#a8d5ba] to-transparent rounded-full"></div>
       </div>
+
+      {/* Dynamic keyframes for random dot movement */}
+      <style jsx>{`
+        ${dots.map((dot, index) => `
+          @keyframes randomFloat-${dot.id} {
+            0%, 100% {
+              transform: translate(-50%, -50%) translateX(0px) translateY(0px);
+            }
+            25% {
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 100}px) translateY(${(Math.random() - 0.5) * 100}px);
+            }
+            50% {
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 80}px) translateY(${(Math.random() - 0.5) * 80}px);
+            }
+            75% {
+              transform: translate(-50%, -50%) translateX(${(Math.random() - 0.5) * 120}px) translateY(${(Math.random() - 0.5) * 120}px);
+            }
+          }
+        `).join('\n')}
+      `}</style>
     </section>
   );
 };
