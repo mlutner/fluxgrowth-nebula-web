@@ -59,7 +59,7 @@ const About = () => {
               return (
                 <span 
                   key={`segment-${i}-${segIndex}`}
-                  className={segment.isGreen ? 'text-emerald-400' : ''}
+                  className={segment.isGreen ? 'text-sage-green' : ''}
                 >
                   {segmentText}
                 </span>
@@ -85,7 +85,7 @@ const About = () => {
             key={`emoji-${i}`}
             className={`inline-flex items-center justify-center w-16 h-16 mx-2 rounded-2xl transition-all duration-500 ${
               showEmojis[key] 
-                ? 'bg-emerald-800/40 border border-emerald-600/50 scale-100 opacity-100' 
+                ? 'bg-sage-green/20 border border-sage-green/30 scale-100 opacity-100' 
                 : 'scale-0 opacity-0'
             }`}
           >
@@ -109,7 +109,7 @@ const About = () => {
             textParts.push(
               <span 
                 key={`remaining-${segIndex}`}
-                className={segment.isGreen ? 'text-emerald-400' : ''}
+                className={segment.isGreen ? 'text-sage-green' : ''}
               >
                 {segmentText}
               </span>
@@ -132,7 +132,7 @@ const About = () => {
     <section className="section-padding bg-charcoal relative overflow-hidden">
       <div className="container-custom">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-none tracking-tight">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.85] tracking-tighter">
             {renderTextWithEmojis()}
             <span className="animate-pulse">|</span>
           </h2>
