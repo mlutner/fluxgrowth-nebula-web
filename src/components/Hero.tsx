@@ -34,14 +34,14 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Main headline with improved typography hierarchy */}
-          <h1 className={`tracking-[-0.05em] text-white mb-12 leading-[0.85] transition-all duration-1000 ${
+          {/* Main headline - smaller and thicker font */}
+          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-light tracking-[-0.05em] text-white mb-12 leading-[0.75] transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="hero-line-1">Turn AI Into Your</div>
-            <div className="hero-line-2 bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent">
+            Turn AI Into Your{' '}
+            <span className="bg-gradient-to-r from-[#a8d5ba] via-[#a8d5ba] to-[#a8d5ba] bg-clip-text text-transparent font-normal">
               Competitive Advantage
-            </div>
+            </span>
           </h1>
 
           {/* Subheadline - 20% larger with more space above */}
