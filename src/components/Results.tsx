@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { TrendingUp, Clock, DollarSign, Users } from 'lucide-react';
+import { TrendingUp, Clock, DollarSign, Users, CheckCircle } from 'lucide-react';
 
 const Results = () => {
   const caseStudies = [
