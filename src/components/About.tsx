@@ -43,7 +43,11 @@ const About = () => {
                       className={`${word.class} fade-in-section inline-flex items-center justify-center mx-2 md:mx-4`}
                       style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
                     >
-                      <span className="text-6xl md:text-7xl lg:text-9xl">{word.text}</span>
+                      <div className="graphic-bubble">
+                        <div className="noise-overlay"></div>
+                        <div className="gradient-overlay"></div>
+                        <p className="emoji-text">{word.text}</p>
+                      </div>
                     </span>
                   );
                 }
