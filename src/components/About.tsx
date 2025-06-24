@@ -50,8 +50,11 @@ const About = () => {
       ref={sectionRef}
       className="explainer-section section-padding relative overflow-hidden"
       style={{
-        background: 'transparent',
-        boxShadow: '0 0 100px rgba(181, 227, 192, 0.15), 0 0 200px rgba(181, 227, 192, 0.08)'
+        background: `
+          radial-gradient(ellipse 800px 400px at center, rgba(181, 227, 192, 0.03) 0%, transparent 50%),
+          radial-gradient(ellipse 1200px 600px at center, rgba(181, 227, 192, 0.02) 0%, transparent 60%),
+          transparent
+        `
       }}
     >
       <div className="container-custom">
@@ -83,9 +86,6 @@ const About = () => {
           </p>
         </div>
       </div>
-      
-      {/* Subtle green glow overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-900/10 to-transparent pointer-events-none"></div>
     </section>
   );
 };
