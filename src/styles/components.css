@@ -422,3 +422,115 @@
     }
   }
 }
+
+/* Custom styles from the new Services section */
+/* Ensure these are correctly scoped or integrated if Tailwind is the primary styling method */
+
+/* Body styles from the original HTML - these might be better in a global stylesheet or tailwind.config.js if they are meant to be global */
+/* body {
+    background-color: #080807; /* This is very dark, check if it conflicts with existing theme
+    font-family: 'Inter Tight', sans-serif; /* Already loaded via index.html
+    color: #ffffff;
+} */
+
+.font-space-grotesk { /* Utility class, Tailwind might already have this or can be configured */
+    font-family: 'Space Grotesk', sans-serif; /* Already loaded via index.html */
+}
+
+.accent-text {
+    color: rgb(211, 255, 202);
+}
+
+.noise-bg::before {
+     content: '';
+     position: absolute;
+     top: 0; left: 0;
+     width: 100%; height: 100%;
+     background-image: url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png');
+     opacity: 0.05;
+     z-index: 0; /* Ensure this z-index plays well with other positioned elements */
+     pointer-events: none;
+}
+
+/* On-scroll animation states - already handled by useScrollReveal and .fade-in-section.is-visible */
+/* .fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+} */
+
+/* Graphics and Animations */
+.card-graphic-container {
+    height: 220px; /* Consider making this responsive if not already handled by Tailwind */
+    background-color: #0F0F0F; /* Tailwind: bg-[#0F0F0F] */
+    border: 1px solid #232323; /* Tailwind: border border-[#232323] */
+}
+.card-graphic-container svg {
+    width: 150px; /* Consider Tailwind classes like w-36 h-36 if fixed size, or responsive classes */
+    height: 150px;
+}
+
+/* === Fixed Gear Animation === */
+@keyframes rotateGear {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.workflow-svg .gear-outer {
+    transform-origin: 50px 50px;
+    fill: rgba(211, 255, 202, 0.1);
+    stroke: rgb(211, 255, 202);
+    stroke-width: 1; /* Tailwind: stroke-1 */
+}
+
+.workflow-svg .gear-inner {
+    fill: rgba(211, 255, 202, 0.3);
+    stroke: rgb(211, 255, 202);
+    stroke-width: 1; /* Tailwind: stroke-1 */
+}
+
+/* Animation applied when .is-visible is present on an ancestor .fade-in-section */
+.fade-in-section.is-visible .workflow-svg .gear-outer {
+    animation: rotateGear 8s linear infinite;
+}
+
+.fade-in-section.is-visible .workflow-svg .gear-inner {
+    animation: rotateGear 12s linear infinite reverse;
+}
+
+/* === Chatbot Animation === */
+@keyframes typing { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+.chatbot-svg .dot1 { animation: typing 1.5s linear infinite 0s; }
+.chatbot-svg .dot2 { animation: typing 1.5s linear infinite 0.3s; }
+.chatbot-svg .dot3 { animation: typing 1.5s linear infinite 0.6s; }
+
+/* === Consulting Animation === */
+@keyframes consulting-text { from { transform: translateX(-10px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+/* Animation applied when .is-visible is present */
+.fade-in-section.is-visible .consulting-svg .bubble1 { animation: consulting-text 3s ease-in-out infinite alternate; }
+.fade-in-section.is-visible .consulting-svg .bubble2 { animation: consulting-text 3s ease-in-out infinite alternate; animation-delay: 1.5s; }
+
+/* === Lead Generation Animation === */
+@keyframes target-pulse { 0%, 100% { transform: scale(0.95); opacity: 0.7; } 50% { transform: scale(1.05); opacity: 1; } }
+@keyframes sweep-v { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
+@keyframes sweep-h { 0% { transform: scaleX(0); } 50% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+
+/* Animations applied when .is-visible is present */
+.fade-in-section.is-visible .leadgen-svg .target-pulse { animation: target-pulse 3s ease-in-out infinite; transform-origin: center; }
+.fade-in-section.is-visible .leadgen-svg .scan-line-v { animation: sweep-v 3s linear infinite; transform-origin: center; }
+.fade-in-section.is-visible .leadgen-svg .scan-line-h { animation: sweep-h 3s linear infinite 1.5s; transform-origin: center; }
+
+/* === Lightbulb Animation === */
+@keyframes lightPulse {
+    0%, 100% { fill: rgba(211, 255, 202, 0.4); filter: drop-shadow(0 0 4px rgba(211, 255, 202, 0.4)); }
+    50% { fill: rgb(211, 255, 202); filter: drop-shadow(0 0 12px rgba(211, 255, 202, 0.8)); }
+}
+/* Animation applied when .is-visible is present */
+.fade-in-section.is-visible .education-svg .bulb-path {
+    animation: lightPulse 2.5s ease-in-out infinite;
+}
