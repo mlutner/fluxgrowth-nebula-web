@@ -116,27 +116,30 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-weight: 500;
-    overflow: hidden;
+    overflow: visible;
     transition: all 0.3s ease;
   }
 
   .animated-cta-button::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      rgba(168, 213, 186, 0.1) 90deg,
-      rgba(168, 213, 186, 0.2) 180deg,
-      rgba(168, 213, 186, 0.1) 270deg,
+      rgba(168, 213, 186, 0.3) 90deg,
+      rgba(168, 213, 186, 0.5) 180deg,
+      rgba(168, 213, 186, 0.3) 270deg,
       transparent 360deg
     );
+    border-radius: inherit;
+    filter: blur(8px);
     animation: rotate-gradient 4s linear infinite;
-    z-index: 1;
+    z-index: -1;
+    opacity: 0.6;
   }
 
   .animated-cta-button::after {
@@ -151,12 +154,13 @@
   .animated-cta-button:hover::before {
     background: conic-gradient(
       from 0deg,
-      rgba(168, 213, 186, 0.1) 0deg,
-      rgba(168, 213, 186, 0.3) 90deg,
-      rgba(168, 213, 186, 0.4) 180deg,
-      rgba(168, 213, 186, 0.3) 270deg,
-      rgba(168, 213, 186, 0.1) 360deg
+      rgba(168, 213, 186, 0.4) 0deg,
+      rgba(168, 213, 186, 0.7) 90deg,
+      rgba(168, 213, 186, 0.8) 180deg,
+      rgba(168, 213, 186, 0.7) 270deg,
+      rgba(168, 213, 186, 0.4) 360deg
     );
+    opacity: 1;
   }
 
   .animated-cta-button:hover {
