@@ -58,7 +58,7 @@ const About = () => {
                 return (
                   <span 
                     key={index}
-                    className={`${word.class} inline-flex items-center justify-center mx-2`}
+                    className={`${word.class} inline-flex items-center justify-center mx-4`}
                   >
                     <span className="text-6xl md:text-7xl lg:text-8xl">{word.text}</span>
                   </span>
@@ -68,7 +68,7 @@ const About = () => {
               return (
                 <span
                   key={index}
-                  className={`animated-word ${word.class} inline-block mx-1 ${
+                  className={`animated-word ${word.class} inline-block mx-3 ${
                     word.isGreen ? 'highlight-text' : ''
                   }`}
                 >

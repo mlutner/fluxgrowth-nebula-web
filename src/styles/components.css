@@ -72,7 +72,7 @@
   .explainer-section.animate .word-12 { animation-delay: 1.4s; }
   .explainer-section.animate .word-13 { animation-delay: 1.5s; }
 
-  /* Highlighted text effect */
+  /* Highlighted text effect - no underline */
   .highlight-text {
     background: linear-gradient(135deg, #a8d5ba, #8fbc8f);
     -webkit-background-clip: text;
@@ -80,21 +80,6 @@
     background-clip: text;
     position: relative;
     display: inline-block;
-  }
-
-  .highlight-text::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #a8d5ba, #8fbc8f);
-    animation: underlineGrow 1s ease-out 1.5s forwards;
-  }
-
-  @keyframes underlineGrow {
-    to { width: 100%; }
   }
 
   /* Emoji animations */
