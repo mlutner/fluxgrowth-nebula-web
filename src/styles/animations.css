@@ -22,7 +22,7 @@
 .particle:nth-child(3) { left: 60%; animation-delay: 4s; }
 .particle:nth-child(4) { left: 80%; animation-delay: 6s; }
 
-/* Sage Green Orb Animation - Smaller Size */
+/* Sage Green Orb Animation - Tighter and Rotating */
 .orb-container {
   position: relative;
   width: 100%;
@@ -33,17 +33,17 @@
 }
 
 .sage-orb {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, 
-    rgba(168, 213, 186, 0.9) 0%,
-    rgba(255, 140, 0, 0.7) 30%,
-    rgba(255, 69, 0, 0.6) 60%,
-    rgba(168, 213, 186, 0.5) 80%,
-    rgba(168, 213, 186, 0.3) 100%);
-  filter: blur(80px);
-  animation: sageOrbFloat 10s ease-in-out infinite, sageOrbShift 15s linear infinite;
+    rgba(168, 213, 186, 1) 0%,
+    rgba(255, 140, 0, 0.8) 25%,
+    rgba(255, 69, 0, 0.7) 45%,
+    rgba(168, 213, 186, 0.6) 70%,
+    rgba(168, 213, 186, 0.2) 100%);
+  filter: blur(60px);
+  animation: sageOrbFloat 10s ease-in-out infinite, sageOrbShift 15s linear infinite, sageOrbRotate 20s linear infinite;
   transform-origin: center;
 }
 
@@ -52,56 +52,65 @@
     transform: translateY(0px) scale(1);
   }
   25% {
-    transform: translateY(-20px) scale(1.1);
+    transform: translateY(-15px) scale(1.05);
   }
   50% {
-    transform: translateY(15px) scale(0.95);
+    transform: translateY(10px) scale(0.98);
   }
   75% {
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@keyframes sageOrbRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
 @keyframes sageOrbShift {
   0% {
     background: radial-gradient(circle at 30% 30%, 
-      rgba(168, 213, 186, 0.9) 0%,
-      rgba(255, 140, 0, 0.7) 30%,
-      rgba(255, 69, 0, 0.6) 60%,
-      rgba(168, 213, 186, 0.5) 80%,
-      rgba(168, 213, 186, 0.3) 100%);
+      rgba(168, 213, 186, 1) 0%,
+      rgba(255, 140, 0, 0.8) 25%,
+      rgba(255, 69, 0, 0.7) 45%,
+      rgba(168, 213, 186, 0.6) 70%,
+      rgba(168, 213, 186, 0.2) 100%);
   }
   25% {
     background: radial-gradient(circle at 70% 20%, 
-      rgba(255, 140, 0, 0.9) 0%,
-      rgba(168, 213, 186, 0.7) 30%,
-      rgba(168, 213, 186, 0.6) 60%,
-      rgba(255, 69, 0, 0.5) 80%,
-      rgba(168, 213, 186, 0.3) 100%);
+      rgba(255, 140, 0, 1) 0%,
+      rgba(168, 213, 186, 0.8) 25%,
+      rgba(168, 213, 186, 0.7) 45%,
+      rgba(255, 69, 0, 0.6) 70%,
+      rgba(168, 213, 186, 0.2) 100%);
   }
   50% {
     background: radial-gradient(circle at 20% 80%, 
-      rgba(255, 69, 0, 0.9) 0%,
-      rgba(168, 213, 186, 0.7) 30%,
-      rgba(255, 140, 0, 0.6) 60%,
-      rgba(168, 213, 186, 0.5) 80%,
-      rgba(168, 213, 186, 0.3) 100%);
+      rgba(255, 69, 0, 1) 0%,
+      rgba(168, 213, 186, 0.8) 25%,
+      rgba(255, 140, 0, 0.7) 45%,
+      rgba(168, 213, 186, 0.6) 70%,
+      rgba(168, 213, 186, 0.2) 100%);
   }
   75% {
     background: radial-gradient(circle at 80% 70%, 
-      rgba(168, 213, 186, 0.9) 0%,
-      rgba(255, 69, 0, 0.7) 30%,
-      rgba(168, 213, 186, 0.6) 60%,
-      rgba(255, 140, 0, 0.5) 80%,
-      rgba(168, 213, 186, 0.3) 100%);
+      rgba(168, 213, 186, 1) 0%,
+      rgba(255, 69, 0, 0.8) 25%,
+      rgba(168, 213, 186, 0.7) 45%,
+      rgba(255, 140, 0, 0.6) 70%,
+      rgba(168, 213, 186, 0.2) 100%);
   }
   100% {
     background: radial-gradient(circle at 30% 30%, 
-      rgba(168, 213, 186, 0.9) 0%,
-      rgba(255, 140, 0, 0.7) 30%,
-      rgba(255, 69, 0, 0.6) 60%,
-      rgba(168, 213, 186, 0.5) 80%,
-      rgba(168, 213, 186, 0.3) 100%);
+      rgba(168, 213, 186, 1) 0%,
+      rgba(255, 140, 0, 0.8) 25%,
+      rgba(255, 69, 0, 0.7) 45%,
+      rgba(168, 213, 186, 0.6) 70%,
+      rgba(168, 213, 186, 0.2) 100%);
   }
 }
 
@@ -182,16 +191,16 @@
 /* Responsive orb sizing */
 @media (max-width: 768px) {
   .sage-orb {
-    width: 300px;
-    height: 300px;
-    filter: blur(60px);
+    width: 250px;
+    height: 250px;
+    filter: blur(50px);
   }
 }
 
 @media (max-width: 480px) {
   .sage-orb {
-    width: 200px;
-    height: 200px;
-    filter: blur(40px);
+    width: 180px;
+    height: 180px;
+    filter: blur(35px);
   }
 }
