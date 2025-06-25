@@ -28,17 +28,37 @@ export const processSteps = [
     number: "02.",
     title: "Architect", 
     description: "Your custom AI roadmap takes shape. We design solutions that integrate seamlessly with your existing workflows while positioning you for exponential growth ahead.",
+    // Replacing SVG with code snippet animation structure
     svg: (
-      <svg className="architect-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#232323" strokeWidth="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="100" height="100" fill="url(#grid)" />
-        <path className="slide-anim" d="M 85 15 L 85 85 L 15 85" stroke="rgb(211, 255, 202)" strokeWidth="2" fill="none" />
-        <path className="draw-anim" d="M 25 75 A 50 50 0 0 1 75 25" stroke="rgb(211, 255, 202)" strokeWidth="3" fill="none" strokeLinecap="round" />
-      </svg>
+      <div className="architect-card-graphic code-container rounded-xl"> {/* Added scoping class and structure from snippet */}
+          <div className="collaborator-cursor">Live Build</div>
+          <div className="code-snippet">
+              <pre dangerouslySetInnerHTML={{ __html: `
+<span class="syntax-keyword">import</span> { FeatureSection } <span class="syntax-keyword">from</span> <span class="syntax-component">'nebula-template'</span>;
+
+<span class="syntax-keyword">const</span> App = () => {
+  <span class="syntax-keyword">return</span> (
+      <span class="syntax-tag">&lt;div&gt;</span>
+          <span class="syntax-component">&lt;Header /&gt;</span>
+          <span class="syntax-component">&lt;HeroSection /&gt;</span>
+          <span class="syntax-component">&lt;FeatureSection /&gt;</span>
+          <span class="syntax-component">&lt;Footer /&gt;</span>
+      <span class="syntax-tag">&lt;/div&gt;</span>
+  );
+}
+
+<span class="syntax-keyword">export default</span> App;
+
+<span class="syntax-comment">// Deployment in progress...</span>
+<span class="syntax-comment">// CI/CD pipeline running...</span>
+<span class="syntax-comment">// ✓ Linting complete.</span>
+<span class="syntax-comment">// ✓ Tests passed.</span>
+<span class="syntax-comment">// ✓ Building production modules...</span>
+<span class="syntax-comment">// Build successful.</span>
+<span class="syntax-comment">// Deploying to production environment...</span>
+`}} />
+          </div>
+      </div>
     )
   },
   {
@@ -66,13 +86,31 @@ export const processSteps = [
     number: "04.",
     title: "Optimize",
     description: "Performance monitoring meets continuous improvement. We refine, adjust, and enhance your AI systems until they're operating at peak efficiency and maximum ROI.",
+    // Replacing SVG with progress bar structure
     svg: (
-      <svg className="optimize-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path className="data-line" d="M10 80 C 30 80, 40 30, 60 30 S 70 20, 90 20" stroke="rgb(211, 255, 202)" strokeWidth="3" fill="none"/>
-        <circle className="data-point" cx="10" cy="80" r="4" fill="#0F0F0F" stroke="rgb(211, 255, 202)" strokeWidth="2" style={{'--delay': '0.5s'} as React.CSSProperties}/>
-        <circle className="data-point" cx="60" cy="30" r="4" fill="#0F0F0F" stroke="rgb(211, 255, 202)" strokeWidth="2" style={{'--delay': '2s'} as React.CSSProperties}/>
-        <circle className="data-point" cx="90" cy="20" r="4" fill="#0F0F0F" stroke="rgb(211, 255, 202)" strokeWidth="2" style={{'--delay': '3s'} as React.CSSProperties}/>
-      </svg>
+      <div className="optimize-card-graphic progress-bars-container rounded-xl"> {/* Added scoping class and structure from snippet */}
+          {/* Speed */}
+          <div className="progress-item">
+              <span className="progress-label">Speed</span>
+              <div className="progress-track">
+                  <div className="progress-fill progress-fill-speed"></div>
+              </div>
+          </div>
+          {/* Security */}
+          <div className="progress-item">
+              <span className="progress-label">Security</span>
+              <div className="progress-track">
+                  <div className="progress-fill progress-fill-security"></div>
+              </div>
+          </div>
+          {/* Accuracy */}
+          <div className="progress-item">
+              <span className="progress-label">Accuracy</span>
+              <div className="progress-track">
+                  <div className="progress-fill progress-fill-accuracy"></div>
+              </div>
+          </div>
+      </div>
     )
   },
   {
