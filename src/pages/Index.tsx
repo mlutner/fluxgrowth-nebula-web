@@ -6,6 +6,9 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Process from '@/components/Process';
 import Results from '@/components/Results';
+import ClientCarousel from '@/components/ClientCarousel';
+import GetInTouch from '@/components/GetInTouch';
+import FAQ from '@/components/FAQ'; // Added import
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -28,6 +31,9 @@ const Index = () => {
         <Services />
         <Process />
         <Results />
+        <ClientCarousel />
+        <GetInTouch />
+        <FAQ /> {/* Added component */}
       </main>
       <Footer />
     </div>
