@@ -23,10 +23,10 @@ export const useScrollReveal = () => {
         }
       });
     }, {
-      // Animation triggers when 15% of the element is visible
-      threshold: 0.15,
-      // Start animation slightly before element enters viewport
-      rootMargin: '0px 0px -50px 0px'
+      // Animation triggers when 10% of the element is visible for faster response
+      threshold: 0.1,
+      // Start animation earlier for smoother experience
+      rootMargin: '0px 0px -20px 0px'
     });
 
     // Tell the observer to watch each section

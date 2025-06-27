@@ -6,6 +6,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Process from '@/components/Process';
 import Results from '@/components/Results';
+import Work from '@/components/Work';
 import ClientCarousel from '@/components/ClientCarousel';
 import GetInTouch from '@/components/GetInTouch';
 import FAQ from '@/components/FAQ'; // Added import
@@ -31,6 +32,7 @@ const Index = () => {
         <Services />
         <Process />
         <Results />
+        <Work />
         <ClientCarousel />
         <GetInTouch />
         <FAQ /> {/* Added component */}

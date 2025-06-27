@@ -438,8 +438,85 @@
 }
 
 .accent-text {
-    color: rgb(211, 255, 202);
+  color: rgb(211, 255, 202);
 }
+
+/* Enhanced Lead Generation Radar Animations */
+@keyframes lead-radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes lead-target-pulse {
+  0%, 100% { 
+    opacity: 0.8; 
+    r: 2px; 
+  }
+  50% { 
+    opacity: 1; 
+    r: 4px; 
+  }
+}
+
+@keyframes lead-data-flow {
+  0% { 
+    stroke-dashoffset: 20; 
+    opacity: 0.2; 
+  }
+  50% { 
+    opacity: 0.6; 
+  }
+  100% { 
+    stroke-dashoffset: 0; 
+    opacity: 0.2; 
+  }
+}
+
+@keyframes lead-ring-pulse {
+  0%, 100% { 
+    stroke-opacity: 0.2; 
+    stroke-width: 1; 
+  }
+  50% { 
+    stroke-opacity: 0.4; 
+    stroke-width: 1.5; 
+  }
+}
+
+/* Lead Generation Radar Elements */
+.lead-radar-sweep {
+  animation: lead-radar-sweep 6s linear infinite;
+}
+
+.lead-radar-sweep-secondary {
+  animation: lead-radar-sweep 8s linear infinite reverse;
+}
+
+.lead-target {
+  animation: lead-target-pulse 3s ease-in-out infinite;
+}
+
+.lead-target-1 { animation-delay: 0s; }
+.lead-target-2 { animation-delay: 0.6s; }
+.lead-target-3 { animation-delay: 1.2s; }
+.lead-target-4 { animation-delay: 1.8s; }
+.lead-target-5 { animation-delay: 2.4s; }
+
+.lead-data-flow {
+  animation: lead-data-flow 4s ease-in-out infinite;
+}
+
+.lead-flow-1 { animation-delay: 0.5s; }
+.lead-flow-2 { animation-delay: 1.5s; }
+.lead-flow-3 { animation-delay: 2.5s; }
+
+.lead-radar-ring-1, .lead-radar-ring-2, .lead-radar-ring-3 {
+  animation: lead-ring-pulse 4s ease-in-out infinite;
+}
+
+.lead-radar-ring-1 { animation-delay: 0s; }
+.lead-radar-ring-2 { animation-delay: 1.3s; }
+.lead-radar-ring-3 { animation-delay: 2.6s; }
 
 .noise-bg::before {
      content: '';
@@ -1116,7 +1193,7 @@
 
 .footer-contact-main a {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.5rem, 6vw, 3rem); /* Responsive font size */
+    font-size: clamp(3rem, 10vw, 6rem); /* Match the heading font size */
     font-weight: 400;
     color: white;
     text-decoration: none;
@@ -1249,8 +1326,20 @@
     height: 100%;
     background: linear-gradient(90deg, #146144 0%, rgb(211, 255, 202) 100%);
     border-radius: 100px;
-    width: 0; /* Initial width is 0 */
     transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Initial partial fill states */
+.optimize-card-graphic .progress-fill-speed {
+    width: 60%; /* Start partially filled */
+}
+
+.optimize-card-graphic .progress-fill-security {
+    width: 45%; /* Start partially filled */
+}
+
+.optimize-card-graphic .progress-fill-accuracy {
+    width: 30%; /* Start partially filled */
 }
 
 /* Trigger progress bar animation ON HOVER of the container */

@@ -1,4 +1,3 @@
-
 /* Enhanced Process Section Styles V2 */
 .process-section-enhanced-v2 {
   display: flex;
@@ -289,17 +288,7 @@
   to { transform: scale(1); }
 }
 
-/* Animation Styles */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Animation Styles - Removed conflicting fade-in-section definition to prevent override */
 
 /* SVG Animations */
 @keyframes radar-sweep { 
@@ -356,12 +345,317 @@
   50% { opacity: 1; } 
 }
 
-.activate-svg .node-center { 
-  animation: pulse-node 3.5s ease-in-out infinite; 
+/* Enhanced Activate Deployment Animations */
+
+/* Container Styling */
+.activate-deployment-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+  padding: 1rem;
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.02) 0%, transparent 70%);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.activate-svg .node-line { 
-  animation: pulse-line 3.5s ease-in-out infinite; 
+.activate-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  max-height: 420px;
+  min-width: 300px;
+  min-height: 250px;
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+/* Grid Background Animation */
+.activate-grid {
+  transition: opacity 1.5s ease;
+}
+
+.process-card-enhanced-v2:hover .activate-grid {
+  opacity: 0.9;
+  stroke: rgba(211, 255, 202, 0.25);
+}
+
+/* Connection Lines Pulse Animation */
+@keyframes activate-connection-pulse {
+  0%, 100% { 
+    opacity: 0.3;
+    stroke-width: 2;
+    stroke-dasharray: 6,4;
+  }
+  50% { 
+    opacity: 0.8;
+    stroke-width: 3;
+    stroke-dasharray: 8,2;
+  }
+}
+
+.activate-connection-1 { animation: activate-connection-pulse 4s ease-in-out infinite; }
+.activate-connection-2 { animation: activate-connection-pulse 4.5s ease-in-out infinite 0.5s; }
+.activate-connection-3 { animation: activate-connection-pulse 3.8s ease-in-out infinite 1s; }
+.activate-connection-4 { animation: activate-connection-pulse 4.2s ease-in-out infinite 1.5s; }
+.activate-connection-5 { animation: activate-connection-pulse 3.6s ease-in-out infinite 2s; }
+.activate-connection-6 { animation: activate-connection-pulse 4.3s ease-in-out infinite 2.5s; }
+.activate-connection-7 { animation: activate-connection-pulse 3.9s ease-in-out infinite 3s; }
+
+/* Node Activation Sequence */
+@keyframes activate-node-startup {
+  0% { 
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes activate-node-steady {
+  0%, 100% { 
+    opacity: 0.8;
+    filter: brightness(1) drop-shadow(0 0 4px rgba(211, 255, 202, 0.3));
+  }
+  50% { 
+    opacity: 1;
+    filter: brightness(1.3) drop-shadow(0 0 8px rgba(211, 255, 202, 0.6));
+  }
+}
+
+/* Individual Node Animations with Cascading Effect */
+.activate-node-primary {
+  animation: activate-node-startup 2s ease-out 0.5s forwards, activate-node-steady 3s ease-in-out 2.5s infinite;
+}
+
+.activate-node-secondary {
+  animation: activate-node-startup 2s ease-out 1.5s forwards, activate-node-steady 3.2s ease-in-out 3.5s infinite;
+}
+
+.activate-node-secondary circle {
+  animation: activate-node-startup 2s ease-out 1.5s forwards;
+}
+
+.activate-node-secondary text {
+  animation: activate-node-startup 2s ease-out 1.5s forwards;
+}
+
+.activate-node-tertiary {
+  animation: activate-node-startup 2s ease-out 2.5s forwards, activate-node-steady 2.8s ease-in-out 4.5s infinite;
+}
+
+.activate-node-tertiary circle {
+  animation: activate-node-startup 2s ease-out 2.5s forwards;
+}
+
+.activate-node-tertiary text {
+  animation: activate-node-startup 2s ease-out 2.5s forwards;
+}
+
+.activate-node-quaternary {
+  animation: activate-node-startup 2s ease-out 3.5s forwards, activate-node-steady 3.4s ease-in-out 5.5s infinite;
+}
+
+.activate-node-quaternary circle {
+  animation: activate-node-startup 2s ease-out 3.5s forwards;
+}
+
+.activate-node-quaternary text {
+  animation: activate-node-startup 2s ease-out 3.5s forwards;
+}
+
+.activate-node-quinary {
+  animation: activate-node-startup 2s ease-out 3s forwards, activate-node-steady 2.9s ease-in-out 5s infinite;
+}
+
+.activate-node-quinary circle {
+  animation: activate-node-startup 2s ease-out 3s forwards;
+}
+
+.activate-node-quinary text {
+  animation: activate-node-startup 2s ease-out 3s forwards;
+}
+
+.activate-node-final {
+  animation: activate-node-startup 2s ease-out 4.5s forwards, activate-node-steady 3.1s ease-in-out 6.5s infinite;
+}
+
+.activate-node-final circle {
+  animation: activate-node-startup 2s ease-out 4.5s forwards;
+}
+
+.activate-node-final text {
+  animation: activate-node-startup 2s ease-out 4.5s forwards;
+}
+
+/* Data Particle Glow Effect */
+.activate-data-particles circle {
+  filter: drop-shadow(0 0 3px rgba(211, 255, 202, 0.8));
+  animation: activate-particle-glow 2s ease-in-out infinite;
+}
+
+@keyframes activate-particle-glow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 3px rgba(211, 255, 202, 0.6));
+    opacity: 0.8;
+  }
+  50% { 
+    filter: drop-shadow(0 0 6px rgba(211, 255, 202, 1));
+    opacity: 1;
+  }
+}
+
+/* Progress Bar Animation Enhancement */
+.activate-progress-fill {
+  filter: drop-shadow(0 0 4px rgba(211, 255, 202, 0.4));
+  animation: activate-progress-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes activate-progress-glow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 2px rgba(211, 255, 202, 0.4));
+  }
+  50% { 
+    filter: drop-shadow(0 0 6px rgba(211, 255, 202, 0.8));
+  }
+}
+
+/* Status Light Sequence Animation */
+@keyframes activate-status-light {
+  0% { 
+    fill: rgba(211, 255, 202, 0.2);
+    filter: none;
+  }
+  20% {
+    fill: rgba(211, 255, 202, 0.6);
+    filter: drop-shadow(0 0 4px rgba(211, 255, 202, 0.4));
+  }
+  40% {
+    fill: rgba(211, 255, 202, 1);
+    filter: drop-shadow(0 0 6px rgba(211, 255, 202, 0.8));
+  }
+  60% {
+    fill: rgba(211, 255, 202, 0.9);
+    filter: drop-shadow(0 0 4px rgba(211, 255, 202, 0.6));
+  }
+  100% {
+    fill: rgba(211, 255, 202, 0.7);
+    filter: drop-shadow(0 0 3px rgba(211, 255, 202, 0.4));
+  }
+}
+
+.activate-status-1 { animation: activate-status-light 6s ease-in-out 1s forwards; }
+.activate-status-2 { animation: activate-status-light 6s ease-in-out 2s forwards; }
+.activate-status-3 { animation: activate-status-light 6s ease-in-out 3s forwards; }
+.activate-status-4 { animation: activate-status-light 6s ease-in-out 4s forwards; }
+.activate-status-5 { animation: activate-status-light 6s ease-in-out 5s forwards; }
+
+/* Hover Effects for Enhanced Interaction */
+.process-card-enhanced-v2:hover .activate-deployment-container {
+  transform: scale(1.02);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.process-card-enhanced-v2:hover .activate-svg {
+  filter: drop-shadow(0 0 15px rgba(211, 255, 202, 0.15));
+}
+
+.process-card-enhanced-v2:hover .activate-connections {
+  opacity: 0.8;
+}
+
+.process-card-enhanced-v2:hover .activate-connection-1,
+.process-card-enhanced-v2:hover .activate-connection-2,
+.process-card-enhanced-v2:hover .activate-connection-3,
+.process-card-enhanced-v2:hover .activate-connection-4,
+.process-card-enhanced-v2:hover .activate-connection-5,
+.process-card-enhanced-v2:hover .activate-connection-6,
+.process-card-enhanced-v2:hover .activate-connection-7 {
+  animation-duration: 2s;
+  stroke: rgba(211, 255, 202, 0.8);
+}
+
+.process-card-enhanced-v2:hover .activate-data-particles circle {
+  animation-duration: 1s;
+  filter: drop-shadow(0 0 8px rgba(211, 255, 202, 1));
+}
+
+.process-card-enhanced-v2:hover .activate-progress-fill {
+  animation-duration: 0.8s;
+  filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.8));
+}
+
+.process-card-enhanced-v2:hover .activate-node {
+  animation-duration: 1.5s;
+}
+
+/* Timeline Enhancement on Hover */
+.process-card-enhanced-v2:hover .activate-timeline-markers {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.activate-timeline-markers {
+  opacity: 0.7;
+  transition: opacity 0.4s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .activate-svg {
+    min-width: 280px;
+    min-height: 220px;
+  }
+  
+  .activate-deployment-container {
+    min-height: 250px;
+    padding: 0.5rem;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .activate-connection-1,
+  .activate-connection-2,
+  .activate-connection-3,
+  .activate-connection-4,
+  .activate-connection-5,
+  .activate-connection-6,
+  .activate-connection-7 {
+    animation-duration: 6s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activate-deployment-container,
+  .activate-svg,
+  .activate-node,
+  .activate-connection-1,
+  .activate-connection-2,
+  .activate-connection-3,
+  .activate-connection-4,
+  .activate-connection-5,
+  .activate-connection-6,
+  .activate-connection-7,
+  .activate-data-particles circle,
+  .activate-progress-fill,
+  .activate-status-1,
+  .activate-status-2,
+  .activate-status-3,
+  .activate-status-4,
+  .activate-status-5 {
+    animation: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 }
 
 @keyframes draw-line { 
@@ -391,22 +685,67 @@
   opacity: 1; 
 }
 
-@keyframes accelerate-anim { 
-  0% { transform: translateX(-15px); opacity: 0; } 
-  50% { opacity: 1; } 
-  100% { transform: translateX(0px); opacity: 0;} 
+/* Enhanced Accelerate Rocket Launch Animations */
+
+/* Container Styling */
+.accelerate-rocket-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+  padding: 1rem;
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.02) 0%, transparent 70%);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.accelerate-svg .arrow1 { 
-  animation: accelerate-anim 2s ease-in-out infinite; 
+.accelerate-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  max-height: 420px;
+  min-width: 300px;
+  min-height: 250px;
+  transition: filter 0.6s ease, transform 0.6s ease;
 }
 
-.accelerate-svg .arrow2 { 
-  animation: accelerate-anim 2s ease-in-out infinite 0.2s; 
+/* Enhanced hover effects for rocket launch */
+.process-card-enhanced-v2:hover .accelerate-rocket-container {
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.04) 0%, transparent 70%);
+  transform: scale(1.02);
 }
 
-.accelerate-svg .arrow3 { 
-  animation: accelerate-anim 2s ease-in-out infinite 0.4s; 
+.process-card-enhanced-v2:hover .accelerate-svg {
+  filter: brightness(1.1) contrast(1.05);
+  transform: scale(1.01);
+}
+
+.process-card-enhanced-v2:hover .accelerate-expansion-rings {
+  opacity: 0.6 !important;
+}
+
+.process-card-enhanced-v2:hover .accelerate-market-connections {
+  opacity: 0.7 !important;
+}
+
+.process-card-enhanced-v2:hover .accelerate-rocket {
+  animation-duration: 1s !important;
+}
+
+@media (max-width: 768px) {
+  .accelerate-svg {
+    max-width: 350px;
+    max-height: 320px;
+    min-width: 280px;
+    min-height: 220px;
+  }
+  
+  .accelerate-rocket-container {
+    min-height: 250px;
+    padding: 0.5rem;
+  }
 }
 
 /* Responsive Grid Adjustments */
@@ -424,4 +763,1590 @@
   .process-card-enhanced-v2:last-child:nth-child(odd) {
     grid-column: span 2;
   }
+}
+
+/* Enhanced Assess Radar Animations - Ultra Smooth & Cinematic */
+
+/* Radar Container - Ultra-Smooth Transitions */
+.assess-radar-container {
+  width: 100%;
+  height: 600px; /* 35% larger than previous 500px -> 675px, rounded to 600px for clean number */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.15) 0%, rgba(8, 8, 7, 1) 70%);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(35, 35, 35, 0.6);
+}
+
+.assess-radar-container:hover {
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.25) 0%, rgba(8, 8, 7, 1) 70%);
+  transform: scale(1.02);
+  box-shadow: 
+    inset 0 0 80px rgba(211, 255, 202, 0.12),
+    0 0 40px rgba(211, 255, 202, 0.15);
+}
+
+.assess-radar-svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  transition: all 0.4s ease;
+}
+
+.assess-radar-container:hover .assess-radar-svg {
+  transform: scale(1.03);
+}
+
+/* Background Radar Animations */
+.radar-background .radar-sweep {
+  animation: radarSweep 4s linear infinite;
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.radar-background circle {
+  animation: radarPulse 3s ease-in-out infinite;
+}
+
+@keyframes radarPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
+}
+
+/* Enhanced hover effects are now handled directly via CSS custom properties */
+
+/* SVG Scaling - Optimized Size */
+.assess-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 560px;
+  max-height: 560px;
+  min-width: 350px;
+  min-height: 350px;
+  transition: filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Primary Radar Sweep - Ultra-Smooth Cinema-Quality Rotation */
+@keyframes assess-primary-sweep {
+  0% { transform: rotate(0deg); opacity: 0.8; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { transform: rotate(360deg); opacity: 0.8; }
+}
+
+.assess-primary-sweep {
+  animation: assess-primary-sweep calc(28s / var(--radar-speed)) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transform-origin: 150px 150px;
+  will-change: transform, opacity;
+}
+
+/* Secondary Radar Sweep - Graceful Counter-rotation with Enhanced Timing */
+@keyframes assess-secondary-sweep {
+  0% { transform: rotate(360deg); opacity: 0.6; }
+  30% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { transform: rotate(0deg); opacity: 0.6; }
+}
+
+.assess-secondary-sweep {
+  animation: assess-secondary-sweep calc(36s / var(--radar-speed)) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transform-origin: 150px 150px;
+  will-change: transform, opacity;
+}
+
+/* Tertiary Radar Sweep - Hypnotic Ultra-Slow Motion with Breathing Effect */
+@keyframes assess-tertiary-sweep {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.4; }
+  25% { transform: rotate(90deg) scale(1.02); opacity: 0.5; }
+  50% { transform: rotate(180deg) scale(1); opacity: 0.4; }
+  75% { transform: rotate(270deg) scale(1.02); opacity: 0.5; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.4; }
+}
+
+.assess-tertiary-sweep {
+  animation: assess-tertiary-sweep calc(54s / var(--radar-speed)) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transform-origin: 150px 150px;
+  will-change: transform, opacity;
+}
+
+/* Enhanced Target Detection - Sophisticated Multi-Stage Pulsing */
+@keyframes assess-target-pulse {
+  0% { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 0.8; 
+    filter: brightness(1) blur(0px) drop-shadow(0 0 3px rgba(211, 255, 202, 0.4)); 
+  }
+  15% { 
+    transform: scale(1.15) rotate(18deg); 
+    opacity: 0.9; 
+    filter: brightness(1.2) blur(0.5px) drop-shadow(0 0 6px rgba(211, 255, 202, 0.6)); 
+  }
+  30% { 
+    transform: scale(1.3) rotate(0deg); 
+    opacity: 1; 
+    filter: brightness(1.4) blur(1px) drop-shadow(0 0 9px rgba(211, 255, 202, 0.8)); 
+  }
+  45% { 
+    transform: scale(1.15) rotate(-18deg); 
+    opacity: 0.95; 
+    filter: brightness(1.2) blur(0.5px) drop-shadow(0 0 6px rgba(211, 255, 202, 0.6)); 
+  }
+  60% { 
+    transform: scale(1.05) rotate(0deg); 
+    opacity: 0.85; 
+    filter: brightness(1.1) blur(0.2px) drop-shadow(0 0 4px rgba(211, 255, 202, 0.5)); 
+  }
+  75% { 
+    transform: scale(1.1) rotate(9deg); 
+    opacity: 0.9; 
+    filter: brightness(1.15) blur(0.3px) drop-shadow(0 0 5px rgba(211, 255, 202, 0.55)); 
+  }
+  100% { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 0.8; 
+    filter: brightness(1) blur(0px) drop-shadow(0 0 3px rgba(211, 255, 202, 0.4)); 
+  }
+}
+
+.assess-target {
+  animation: assess-target-pulse calc(6s / var(--target-intensity)) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity, filter;
+}
+
+.assess-target-1 { animation-delay: 0s; }
+.assess-target-2 { animation-delay: 1s; }
+.assess-target-3 { animation-delay: 2s; }
+.assess-target-4 { animation-delay: 3s; }
+.assess-target-5 { animation-delay: 4s; }
+.assess-target-6 { animation-delay: 0.5s; }
+
+/* Sophisticated Ring Pulsing - Ultra-Smooth Breathing Effect */
+@keyframes assess-ring-pulse-1 {
+  0%, 100% { 
+    stroke-opacity: 0.35; 
+    stroke-width: 1.2;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    stroke-opacity: 0.5; 
+    stroke-width: 1.6;
+    transform: scale(1.008);
+    filter: brightness(1.1);
+  }
+  50% { 
+    stroke-opacity: 0.65; 
+    stroke-width: 1.8;
+    transform: scale(1.015);
+    filter: brightness(1.15);
+  }
+  75% {
+    stroke-opacity: 0.5; 
+    stroke-width: 1.6;
+    transform: scale(1.008);
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes assess-ring-pulse-2 {
+  0%, 100% { 
+    stroke-opacity: 0.3; 
+    stroke-width: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    stroke-opacity: 0.45; 
+    stroke-width: 1.4;
+    transform: scale(1.006);
+    filter: brightness(1.08);
+  }
+  50% { 
+    stroke-opacity: 0.55; 
+    stroke-width: 1.6;
+    transform: scale(1.012);
+    filter: brightness(1.12);
+  }
+  75% {
+    stroke-opacity: 0.45; 
+    stroke-width: 1.4;
+    transform: scale(1.006);
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes assess-ring-pulse-3 {
+  0%, 100% { 
+    stroke-opacity: 0.25; 
+    stroke-width: 0.8;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    stroke-opacity: 0.4; 
+    stroke-width: 1.2;
+    transform: scale(1.004);
+    filter: brightness(1.06);
+  }
+  50% { 
+    stroke-opacity: 0.48; 
+    stroke-width: 1.4;
+    transform: scale(1.008);
+    filter: brightness(1.09);
+  }
+  75% {
+    stroke-opacity: 0.4; 
+    stroke-width: 1.2;
+    transform: scale(1.004);
+    filter: brightness(1.06);
+  }
+}
+
+@keyframes assess-ring-pulse-4 {
+  0%, 100% { 
+    stroke-opacity: 0.2; 
+    stroke-width: 0.6;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    stroke-opacity: 0.35; 
+    stroke-width: 1;
+    transform: scale(1.003);
+    filter: brightness(1.04);
+  }
+  50% { 
+    stroke-opacity: 0.42; 
+    stroke-width: 1.2;
+    transform: scale(1.005);
+    filter: brightness(1.07);
+  }
+  75% {
+    stroke-opacity: 0.35; 
+    stroke-width: 1;
+    transform: scale(1.003);
+    filter: brightness(1.04);
+  }
+}
+
+@keyframes assess-ring-pulse-5 {
+  0%, 100% { 
+    stroke-opacity: 0.15; 
+    stroke-width: 0.4;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    stroke-opacity: 0.3; 
+    stroke-width: 0.8;
+    transform: scale(1.002);
+    filter: brightness(1.03);
+  }
+  50% { 
+    stroke-opacity: 0.38; 
+    stroke-width: 1;
+    transform: scale(1.003);
+    filter: brightness(1.05);
+  }
+  75% {
+    stroke-opacity: 0.3; 
+    stroke-width: 0.8;
+    transform: scale(1.002);
+    filter: brightness(1.03);
+  }
+}
+
+.assess-radar-ring-1 {
+  animation: assess-ring-pulse-1 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  transform-origin: 150px 150px;
+  will-change: transform, stroke-opacity, stroke-width, filter;
+}
+
+.assess-radar-ring-2 {
+  animation: assess-ring-pulse-2 14s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-delay: 2.5s;
+  transform-origin: 150px 150px;
+  will-change: transform, stroke-opacity, stroke-width, filter;
+}
+
+.assess-radar-ring-3 {
+  animation: assess-ring-pulse-3 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-delay: 5s;
+  transform-origin: 150px 150px;
+  will-change: transform, stroke-opacity, stroke-width, filter;
+}
+
+.assess-radar-ring-4 {
+  animation: assess-ring-pulse-4 22s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-delay: 7.5s;
+  transform-origin: 150px 150px;
+  will-change: transform, stroke-opacity, stroke-width, filter;
+}
+
+.assess-radar-ring-5 {
+  animation: assess-ring-pulse-5 26s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-delay: 10s;
+  transform-origin: 150px 150px;
+  will-change: transform, stroke-opacity, stroke-width, filter;
+}
+
+/* Enhanced Data Flow Animation - Ultra-Smooth Transmission */
+@keyframes assess-data-flow-animation {
+  0% { 
+    stroke-dashoffset: 20; 
+    opacity: calc(var(--connection-opacity) * 0.3); 
+    stroke-width: 0.8; 
+    filter: blur(0px) drop-shadow(0 0 2px rgba(211, 255, 202, 0.3)); 
+  }
+  10% { 
+    stroke-dashoffset: 18; 
+    opacity: calc(var(--connection-opacity) * 0.5); 
+    stroke-width: 1.2; 
+    filter: blur(0.2px) drop-shadow(0 0 4px rgba(211, 255, 202, 0.4)); 
+  }
+  25% { 
+    stroke-dashoffset: 15; 
+    opacity: calc(var(--connection-opacity) * 0.8); 
+    stroke-width: 1.6; 
+    filter: blur(0.3px) drop-shadow(0 0 6px rgba(211, 255, 202, 0.6)); 
+  }
+  40% { 
+    stroke-dashoffset: 10; 
+    opacity: var(--connection-opacity); 
+    stroke-width: 2; 
+    filter: blur(0.4px) drop-shadow(0 0 8px rgba(211, 255, 202, 0.8)); 
+  }
+  55% { 
+    stroke-dashoffset: 5; 
+    opacity: calc(var(--connection-opacity) * 1.1); 
+    stroke-width: 1.8; 
+    filter: blur(0.3px) drop-shadow(0 0 7px rgba(211, 255, 202, 0.7)); 
+  }
+  70% { 
+    stroke-dashoffset: 2; 
+    opacity: calc(var(--connection-opacity) * 0.9); 
+    stroke-width: 1.4; 
+    filter: blur(0.2px) drop-shadow(0 0 5px rgba(211, 255, 202, 0.5)); 
+  }
+  85% { 
+    stroke-dashoffset: 0; 
+    opacity: calc(var(--connection-opacity) * 0.6); 
+    stroke-width: 1; 
+    filter: blur(0.1px) drop-shadow(0 0 3px rgba(211, 255, 202, 0.4)); 
+  }
+  100% { 
+    stroke-dashoffset: -2; 
+    opacity: calc(var(--connection-opacity) * 0.3); 
+    stroke-width: 0.8; 
+    filter: blur(0px) drop-shadow(0 0 2px rgba(211, 255, 202, 0.3)); 
+  }
+}
+
+.assess-data-flow {
+  animation: assess-data-flow-animation calc(9s / var(--radar-speed)) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: stroke-dashoffset, opacity, stroke-width, filter;
+  opacity: var(--connection-opacity);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.assess-flow-1 { animation-delay: 0s; }
+.assess-flow-2 { animation-delay: 1.3s; }
+.assess-flow-3 { animation-delay: 2.6s; }
+.assess-flow-4 { animation-delay: 3.9s; }
+.assess-flow-5 { animation-delay: 5.2s; }
+.assess-flow-6 { animation-delay: 6.5s; }
+
+/* Enhanced Label Hover Animation - Ultra Smooth with Perfect Interpolation */
+@keyframes assess-labels-appear {
+  0% { 
+    opacity: 0; 
+    transform: translateY(12px) scale(0.92);
+    filter: blur(3px) brightness(0.8);
+  }
+  25% {
+    opacity: 0.4;
+    transform: translateY(8px) scale(0.96);
+    filter: blur(2px) brightness(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(4px) scale(0.98);
+    filter: blur(1px) brightness(0.95);
+  }
+  75% {
+    opacity: 0.9;
+    transform: translateY(1px) scale(0.99);
+    filter: blur(0.3px) brightness(0.98);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes assess-labels-disappear {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+    filter: blur(0) brightness(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translateY(1px) scale(0.99);
+    filter: blur(0.3px) brightness(0.98);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(2px) scale(0.98);
+    filter: blur(0.8px) brightness(0.95);
+  }
+  75% {
+    opacity: 0.3;
+    transform: translateY(4px) scale(0.96);
+    filter: blur(1.5px) brightness(0.9);
+  }
+  100% { 
+    opacity: 0;
+    transform: translateY(8px) scale(0.94);
+    filter: blur(2px) brightness(0.85);
+  }
+}
+
+.assess-labels {
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform, filter;
+}
+
+/* Hover States - Ultra Fluid Cinematic Transitions */
+.assess-radar-container:hover .assess-labels {
+  animation: assess-labels-appear 1.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.assess-radar-container:not(:hover) .assess-labels {
+  animation: assess-labels-disappear 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Enhanced Hover Effects with Smooth Acceleration */
+.assess-radar-container:hover .assess-primary-sweep {
+  animation-duration: 10s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-secondary-sweep {
+  animation-duration: 14s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-tertiary-sweep {
+  animation-duration: 20s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-target {
+  animation-duration: 2.5s;
+  transition: animation-duration 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-data-flow {
+  animation-duration: 4s;
+  transition: animation-duration 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-radar-ring-1 {
+  animation-duration: 5s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-radar-ring-2 {
+  animation-duration: 7s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-radar-ring-3 {
+  animation-duration: 9s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-radar-ring-4 {
+  animation-duration: 11s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assess-radar-container:hover .assess-radar-ring-5 {
+  animation-duration: 13s;
+  transition: animation-duration 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Responsive Design - Mobile Optimization */
+@media (max-width: 768px) {
+  .assess-svg {
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 300px;
+    min-height: 300px;
+  }
+  
+  .assess-radar-container {
+    min-height: 350px;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .assess-svg {
+    max-width: 350px;
+    max-height: 350px;
+    min-width: 280px;
+    min-height: 280px;
+  }
+  
+  .assess-radar-container {
+    min-height: 320px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .assess-svg {
+    filter: contrast(1.5) brightness(1.2);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .assess-primary-sweep,
+  .assess-secondary-sweep,
+  .assess-tertiary-sweep,
+  .assess-target-1, .assess-target-2, .assess-target-3,
+  .assess-target-4, .assess-target-5, .assess-target-6,
+  .assess-radar-ring-1, .assess-radar-ring-2, .assess-radar-ring-3,
+  .assess-radar-ring-4, .assess-radar-ring-5,
+  .assess-data-flow-1, .assess-data-flow-2, .assess-data-flow-3,
+  .assess-data-flow-4, .assess-data-flow-5, .assess-data-flow-6 {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .assess-radar-container {
+    page-break-inside: avoid;
+  }
+  
+  .assess-svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Radar Rings - Ultra-Smooth Breathing Effects */
+@keyframes assess-ring-breathe-1 {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.4; stroke-width: 1; }
+  25% { transform: scale(1.008) rotate(2deg); opacity: 0.5; stroke-width: 1.2; }
+  50% { transform: scale(1.015) rotate(0deg); opacity: 0.6; stroke-width: 1.4; }
+  75% { transform: scale(1.008) rotate(-2deg); opacity: 0.5; stroke-width: 1.2; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.4; stroke-width: 1; }
+}
+
+.assess-ring-1 {
+  animation: assess-ring-breathe-1 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+  will-change: transform, opacity, stroke-width;
+}
+
+@keyframes assess-ring-breathe-2 {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.35; stroke-width: 1; }
+  33% { transform: scale(1.012) rotate(3deg); opacity: 0.45; stroke-width: 1.3; }
+  66% { transform: scale(1.025) rotate(-1deg); opacity: 0.55; stroke-width: 1.6; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.35; stroke-width: 1; }
+}
+
+.assess-ring-2 {
+  animation: assess-ring-breathe-2 16s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+  will-change: transform, opacity, stroke-width;
+}
+
+@keyframes assess-ring-breathe-3 {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.3; stroke-width: 1; }
+  40% { transform: scale(1.018) rotate(-4deg); opacity: 0.4; stroke-width: 1.4; }
+  80% { transform: scale(1.035) rotate(2deg); opacity: 0.5; stroke-width: 1.8; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.3; stroke-width: 1; }
+}
+
+.assess-ring-3 {
+  animation: assess-ring-breathe-3 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+  will-change: transform, opacity, stroke-width;
+}
+
+@keyframes assess-ring-breathe-4 {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.25; stroke-width: 1; }
+  45% { transform: scale(1.022) rotate(5deg); opacity: 0.35; stroke-width: 1.5; }
+  90% { transform: scale(1.045) rotate(-3deg); opacity: 0.45; stroke-width: 2; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.25; stroke-width: 1; }
+}
+
+.assess-ring-4 {
+  animation: assess-ring-breathe-4 24s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+  will-change: transform, opacity, stroke-width;
+}
+
+@keyframes assess-ring-breathe-5 {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.2; stroke-width: 1; }
+  50% { transform: scale(1.028) rotate(-6deg); opacity: 0.3; stroke-width: 1.6; }
+  100% { transform: scale(1.055) rotate(4deg); opacity: 0.4; stroke-width: 2.2; }
+}
+
+.assess-ring-5 {
+  animation: assess-ring-breathe-5 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+  will-change: transform, opacity, stroke-width;
+}
+
+/* === OPTIMIZE PROGRESS BARS STYLES === */
+
+.optimize-progress-container {
+  background-color: #0F0F0F;
+  border: 1px solid #232323;
+  border-radius: 15px;
+  padding: 40px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 275px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.optimize-progress-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(211, 255, 202, 0.02) 0%, 
+    rgba(211, 255, 202, 0.05) 25%, 
+    rgba(211, 255, 202, 0.02) 50%, 
+    rgba(211, 255, 202, 0.05) 75%, 
+    rgba(211, 255, 202, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.optimize-progress-container:hover::before {
+  opacity: 1;
+}
+
+.optimize-progress-bars {
+  width: 100%;
+  max-width: 300px;
+}
+
+.optimize-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.optimize-progress-item:last-child {
+  margin-bottom: 0;
+}
+
+.optimize-progress-label {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1rem;
+  color: #a0a0a0;
+  font-weight: 500;
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.optimize-progress-container:hover .optimize-progress-label {
+  color: rgba(211, 255, 202, 0.9);
+}
+
+.optimize-progress-track {
+  width: 100%;
+  height: 12px;
+  background-color: #232323;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.optimize-progress-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(211, 255, 202, 0.1) 0%, 
+    rgba(211, 255, 202, 0.2) 50%, 
+    rgba(211, 255, 202, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.optimize-progress-container:hover .optimize-progress-track::before {
+  opacity: 1;
+}
+
+.optimize-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #146144 0%, rgb(211, 255, 202) 100%);
+  border-radius: 100px;
+  width: 15%; /* Initial partial fill - shows green lines partially */
+  transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.optimize-progress-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    transparent 100%);
+  transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.optimize-progress-container:hover .optimize-progress-fill::before {
+  left: 100%;
+}
+
+.optimize-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    transparent 50%, 
+    rgba(0, 0, 0, 0.2) 100%);
+  border-radius: 100px;
+}
+
+/* Individual Progress Bar Animations */
+.optimize-progress-container:hover .optimize-progress-fill-speed {
+  width: 85%;
+  transition-delay: 0s;
+  box-shadow: 
+    0 0 10px rgba(211, 255, 202, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.optimize-progress-container:hover .optimize-progress-fill-security {
+  width: 70%;
+  transition-delay: 0.2s;
+  box-shadow: 
+    0 0 8px rgba(211, 255, 202, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.optimize-progress-container:hover .optimize-progress-fill-accuracy {
+  width: 45%;
+  transition-delay: 0.4s;
+  box-shadow: 
+    0 0 6px rgba(211, 255, 202, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Different initial fill levels for visual variety */
+.optimize-progress-fill-speed {
+  width: 20%; /* Speed starts more filled */
+}
+
+.optimize-progress-fill-security {
+  width: 15%; /* Security starts medium filled */
+}
+
+.optimize-progress-fill-accuracy {
+  width: 10%; /* Accuracy starts less filled */
+}
+
+/* Reset on hover out - maintains partial visibility */
+.optimize-progress-container:not(:hover) .optimize-progress-fill-speed {
+  width: 20%;
+  transition-delay: 0s;
+  box-shadow: none;
+}
+
+.optimize-progress-container:not(:hover) .optimize-progress-fill-security {
+  width: 15%;
+  transition-delay: 0s;
+  box-shadow: none;
+}
+
+.optimize-progress-container:not(:hover) .optimize-progress-fill-accuracy {
+  width: 10%;
+  transition-delay: 0s;
+  box-shadow: none;
+}
+
+/* Pulse Animation for Active State */
+@keyframes optimize-pulse {
+  0% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.02); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+.optimize-progress-container:hover {
+  animation: optimize-pulse 2s ease-in-out infinite;
+  border-color: rgba(211, 255, 202, 0.3);
+  box-shadow: 
+    0 0 20px rgba(211, 255, 202, 0.1),
+    inset 0 1px 0 rgba(211, 255, 202, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .optimize-progress-container {
+    padding: 30px 20px;
+    height: 250px;
+  }
+  
+  .optimize-progress-label {
+    font-size: 0.9rem;
+  }
+  
+  .optimize-progress-track {
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .optimize-progress-container {
+    padding: 25px 15px;
+    height: 225px;
+  }
+  
+  .optimize-progress-item {
+    margin-bottom: 20px;
+  }
+  
+  .optimize-progress-label {
+    font-size: 0.85rem;
+  }
+  
+  .optimize-progress-track {
+    height: 8px;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .optimize-progress-fill {
+    transition-duration: 0.3s;
+  }
+  
+  .optimize-progress-container {
+    animation: none;
+  }
+  
+  .optimize-progress-fill::before {
+    display: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .optimize-progress-container {
+    border-color: #ffffff;
+    background-color: #000000;
+  }
+  
+  .optimize-progress-label {
+    color: #ffffff;
+  }
+  
+  .optimize-progress-track {
+    background-color: #404040;
+  }
+}
+
+/* Enhanced Assess Dashboard Styles */
+.assess-dashboard-container {
+  width: 100%;
+  height: 400px; /* Increased from 300px to 400px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(15, 15, 15, 0.95) 0%, rgba(8, 8, 7, 1) 70%);
+  border-radius: 16px; /* Increased border radius */
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border: 1px solid rgba(35, 35, 35, 0.6);
+}
+
+.assess-dashboard-container:hover {
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.25) 0%, rgba(8, 8, 7, 1) 70%);
+  transform: scale(1.03); /* Slightly more scale on hover */
+  box-shadow: 
+    inset 0 0 60px rgba(211, 255, 202, 0.12),
+    0 0 40px rgba(211, 255, 202, 0.18),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(211, 255, 202, 0.4);
+}
+
+.assess-dashboard-svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  opacity: 0.95;
+  transition: opacity 0.4s ease;
+}
+
+.assess-dashboard-container:hover .assess-dashboard-svg {
+  opacity: 1;
+}
+
+/* Core Assessment Hub Animations */
+.assess-core-pulse {
+  animation: assess-core-pulse 3s ease-in-out infinite;
+}
+
+@keyframes assess-core-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.assess-precision-dot {
+  animation: assess-precision-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes assess-precision-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Business Node Animations */
+.assess-node-core {
+  animation: assess-node-glow 3s ease-in-out infinite;
+}
+
+@keyframes assess-node-glow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.assess-node-bg {
+  transition: all 0.3s ease;
+}
+
+.assess-dashboard-container:hover .assess-node-bg {
+  fill: rgba(16, 43, 31, 0.4);
+  stroke: rgba(211, 255, 202, 0.7);
+  stroke-width: 2;
+}
+
+/* Data Flow Animations */
+.assess-data-flow {
+  animation: assess-data-flow-pulse 2s linear infinite;
+}
+
+@keyframes assess-data-flow-pulse {
+  0% { stroke-dashoffset: 0; opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { stroke-dashoffset: 8; opacity: 0.3; }
+}
+
+.assess-dashboard-container:hover .assess-data-flow {
+  stroke: rgba(211, 255, 202, 0.9);
+  stroke-width: 3;
+  animation-duration: 1s;
+}
+
+/* Radar Sweep Enhanced */
+.assess-sweep-sector {
+  animation: assess-radar-sweep 8s linear infinite;
+}
+
+@keyframes assess-radar-sweep {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.4; }
+}
+
+.assess-dashboard-container:hover .assess-sweep-sector {
+  opacity: 0.8;
+  animation-duration: 4s;
+}
+
+/* Crosshairs Enhancement */
+.assess-crosshairs {
+  transition: all 0.3s ease;
+}
+
+.assess-dashboard-container:hover .assess-crosshairs {
+  stroke: rgba(211, 255, 202, 1);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.8));
+}
+
+/* Scan Indicator Animation */
+.assess-scan-indicator {
+  animation: assess-scan-blink 1.5s ease-in-out infinite;
+}
+
+@keyframes assess-scan-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+.assess-dashboard-container:hover .assess-scan-indicator {
+  animation-duration: 0.8s;
+  fill: rgba(211, 255, 202, 1);
+}
+
+/* Hover Enhancement Layer */
+.assess-hover-layer {
+  transition: opacity 0.4s ease;
+}
+
+.assess-dashboard-container:hover .assess-hover-layer {
+  opacity: 0.6 !important;
+}
+
+.assess-enhanced-ring {
+  animation: assess-enhanced-ring-pulse 3s linear infinite;
+}
+
+@keyframes assess-enhanced-ring-pulse {
+  0% { stroke-dashoffset: 0; stroke-width: 2; }
+  50% { stroke-width: 3; }
+  100% { stroke-dashoffset: 20; stroke-width: 2; }
+}
+
+.assess-outer-ring {
+  animation: assess-outer-ring-pulse 4s linear infinite;
+}
+
+@keyframes assess-outer-ring-pulse {
+  0% { stroke-dashoffset: 0; opacity: 0.4; }
+  50% { opacity: 0.6; }
+  100% { stroke-dashoffset: 28; opacity: 0.4; }
+}
+
+/* Grid System Enhancement */
+.assess-grid-system {
+  transition: opacity 0.3s ease;
+}
+
+.assess-dashboard-container:hover .assess-grid-system {
+  opacity: 0.5;
+}
+
+/* Metrics Overlay Enhancement */
+.assess-metrics-overlay {
+  transition: all 0.3s ease;
+}
+
+.assess-dashboard-container:hover .assess-metrics-overlay {
+  opacity: 1;
+}
+
+.assess-dashboard-container:hover .assess-metrics-overlay rect {
+  fill: rgba(16, 43, 31, 0.8);
+  stroke: rgba(211, 255, 202, 0.6);
+}
+
+.assess-dashboard-container:hover .assess-metrics-overlay text[fill="#a0a0a0"] {
+  fill: rgba(211, 255, 202, 0.9);
+}
+
+/* Central Hub Ring Enhancement */
+.assess-central-hub circle[stroke] {
+  transition: all 0.3s ease;
+}
+
+.assess-dashboard-container:hover .assess-central-hub circle[stroke] {
+  stroke: rgba(211, 255, 202, 0.6);
+  stroke-width: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .assess-dashboard-container {
+    height: 350px;
+  }
+  
+  .assess-dashboard-container:hover {
+    transform: scale(1.01);
+  }
+}
+
+@media (max-width: 480px) {
+  .assess-dashboard-container {
+    height: 200px;
+  }
+  
+  .assess-dashboard-svg {
+    max-width: 300px;
+    max-height: 250px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .assess-dashboard-container,
+  .assess-dashboard-svg,
+  .assess-core-pulse,
+  .assess-precision-dot,
+  .assess-node-core,
+  .assess-data-flow,
+  .assess-sweep-sector,
+  .assess-scan-indicator,
+  .assess-enhanced-ring,
+  .assess-outer-ring {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .assess-dashboard-container:hover {
+    transform: none !important;
+  }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  .assess-dashboard-container {
+    border: 2px solid rgba(211, 255, 202, 1);
+  }
+  
+  .assess-dashboard-container:hover {
+    border-color: rgba(255, 255, 255, 1);
+  }
+}
+
+/* Simple Assess Visualization Styles */
+.assess-simple-container {
+  width: 100%;
+  height: 500px; /* Much larger height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.15) 0%, rgba(8, 8, 7, 1) 70%);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(35, 35, 35, 0.6);
+}
+
+.assess-simple-container:hover {
+  background: radial-gradient(circle at center, rgba(16, 43, 31, 0.3) 0%, rgba(8, 8, 7, 1) 70%);
+  transform: scale(1.02);
+  box-shadow: 
+    inset 0 0 80px rgba(211, 255, 202, 0.1),
+    0 0 40px rgba(211, 255, 202, 0.15);
+}
+
+.assess-simple-svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+/* Center Hub Animations */
+.assess-center-hub {
+  transition: all 0.4s ease;
+}
+
+.assess-center-pulse {
+  animation: assess-pulse 3s ease-in-out infinite;
+}
+
+.assess-center-text {
+  transition: all 0.4s ease;
+}
+
+.assess-simple-container:hover .assess-center-text {
+  fill: rgba(211, 255, 202, 1);
+  filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.6));
+}
+
+/* Assessment Areas Hover Effects */
+.assess-area {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.assess-simple-container:hover .assess-area {
+  fill: rgba(16, 43, 31, 0.9);
+  stroke: rgba(211, 255, 202, 0.8);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 12px rgba(211, 255, 202, 0.4));
+}
+
+.assess-simple-container:hover .assess-area text {
+  fill: rgba(211, 255, 202, 1);
+  font-weight: 600;
+}
+
+/* Connection Lines Animation */
+.assess-connections line {
+  transition: all 0.4s ease;
+  stroke-dasharray: 5,5;
+  animation: assess-dash 2s linear infinite;
+}
+
+.assess-simple-container:hover .assess-connections line {
+  stroke: rgba(211, 255, 202, 0.6);
+  stroke-width: 3;
+  animation: assess-dash 1s linear infinite;
+}
+
+/* Individual Area Hover Effects */
+.assess-simple-container:hover .assess-revenue {
+  animation: assess-glow-revenue 2s ease-in-out infinite;
+}
+
+.assess-simple-container:hover .assess-ops {
+  animation: assess-glow-ops 2s ease-in-out infinite 0.2s;
+}
+
+.assess-simple-container:hover .assess-process {
+  animation: assess-glow-process 2s ease-in-out infinite 0.4s;
+}
+
+.assess-simple-container:hover .assess-tech {
+  animation: assess-glow-tech 2s ease-in-out infinite 0.6s;
+}
+
+/* Keyframe Animations */
+@keyframes assess-pulse {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.1);
+  }
+}
+
+@keyframes assess-dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes assess-glow-revenue {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 0 16px rgba(211, 255, 202, 0.6));
+  }
+}
+
+@keyframes assess-glow-ops {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 0 16px rgba(211, 255, 202, 0.6));
+  }
+}
+
+@keyframes assess-glow-process {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 0 16px rgba(211, 255, 202, 0.6));
+  }
+}
+
+@keyframes assess-glow-tech {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 0 16px rgba(211, 255, 202, 0.6));
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .assess-simple-container {
+    height: 400px;
+  }
+  
+  .assess-simple-svg text {
+    fontSize: 16px;
+  }
+  
+  .assess-center-text {
+    fontSize: 20px;
+  }
+}
+
+/* Large Assess Visualization Styles - Following Design Best Practices */
+.assess-large-container {
+  width: 100%;
+  height: 700px; /* MUCH larger height following user feedback */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at center, rgba(16, 43, 31, 0.15) 0%, rgba(8, 8, 7, 1) 70%),
+    linear-gradient(45deg, rgba(8, 8, 7, 1) 0%, rgba(12, 12, 11, 1) 100%);
+  border-radius: 20px; /* Larger border radius for better proportions */
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid rgba(35, 35, 35, 0.6);
+  box-shadow: 
+    inset 0 0 100px rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.assess-large-container:hover {
+  background: 
+    radial-gradient(circle at center, rgba(16, 43, 31, 0.25) 0%, rgba(8, 8, 7, 1) 70%),
+    linear-gradient(45deg, rgba(8, 8, 7, 1) 0%, rgba(12, 12, 11, 1) 100%);
+  transform: scale(1.02);
+  box-shadow: 
+    inset 0 0 120px rgba(211, 255, 202, 0.08),
+    0 0 60px rgba(211, 255, 202, 0.12),
+    0 8px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(211, 255, 202, 0.3);
+}
+
+.assess-large-svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  transition: all 0.4s ease;
+}
+
+.assess-large-container:hover .assess-large-svg {
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Enhanced animations for larger display */
+.assess-large-container:hover .assess-center-hub circle {
+  animation: assess-large-pulse 3s ease-in-out infinite;
+}
+
+.assess-large-container:hover .assess-node-revenue circle,
+.assess-large-container:hover .assess-node-operations circle,
+.assess-large-container:hover .assess-node-process circle,
+.assess-large-container:hover .assess-node-technology circle {
+  animation: assess-large-node-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes assess-large-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px rgba(211, 255, 202, 0.4)); 
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px rgba(211, 255, 202, 0.6)); 
+    transform: scale(1.02);
+  }
+}
+
+@keyframes assess-large-node-glow {
+  0% { 
+    filter: drop-shadow(0 0 8px rgba(211, 255, 202, 0.3)); 
+  }
+  100% { 
+    filter: drop-shadow(0 0 16px rgba(211, 255, 202, 0.5)); 
+  }
+}
+
+/* Responsive scaling for proper size management */
+@media (max-width: 1200px) {
+  .assess-large-container {
+    height: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .assess-large-container {
+    height: 500px;
+  }
+  
+  .assess-large-svg text {
+    font-size: 0.8em;
+  }
+}
+
+/* Massive Assess Visualization Styles - Following Design Best Practices */
+.assess-massive-container {
+  width: 100%;
+  height: 800px; /* MASSIVE height for proper visual impact */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at center, rgba(16, 43, 31, 0.2) 0%, rgba(8, 8, 7, 1) 70%),
+    linear-gradient(45deg, rgba(8, 8, 7, 1) 0%, rgba(12, 12, 11, 1) 100%);
+  border-radius: 24px; /* Larger border radius for better proportions */
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid rgba(35, 35, 35, 0.6);
+  box-shadow: 
+    inset 0 0 120px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.assess-massive-container:hover {
+  background: 
+    radial-gradient(circle at center, rgba(16, 43, 31, 0.35) 0%, rgba(8, 8, 7, 1) 70%),
+    linear-gradient(45deg, rgba(8, 8, 7, 1) 0%, rgba(12, 12, 11, 1) 100%);
+  transform: scale(1.03); /* Slightly more scale on hover */
+  box-shadow: 
+    inset 0 0 80px rgba(211, 255, 202, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(211, 255, 202, 0.15);
+}
+
+.assess-massive-svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+/* Enhanced radar animations for massive display */
+.assess-massive-container .radar-sweep {
+  animation: massive-radar-sweep 4s linear infinite;
+}
+
+.assess-massive-container .radar-background circle {
+  animation: massive-radar-pulse 3s ease-in-out infinite;
+}
+
+.assess-massive-container:hover .central-hub circle {
+  animation: massive-hub-pulse 2s ease-in-out infinite;
+}
+
+.assess-massive-container:hover .assessment-nodes circle {
+  animation: massive-node-glow 1.5s ease-in-out infinite alternate;
+}
+
+.assess-massive-container .connection-lines line {
+  animation: massive-connection-flow 2s ease-in-out infinite;
+}
+
+@keyframes massive-radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes massive-radar-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    stroke-width: 1;
+  }
+  50% {
+    opacity: 0.6;
+    stroke-width: 2;
+  }
+}
+
+@keyframes massive-hub-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(211, 255, 202, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(211, 255, 202, 0.6));
+  }
+}
+
+@keyframes massive-node-glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(211, 255, 202, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(211, 255, 202, 0.8));
+  }
+}
+
+@keyframes massive-connection-flow {
+  0% {
+    stroke-dasharray: 8, 8;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 8, 8;
+    stroke-dashoffset: 16;
+  }
+}
+
+/* Motion Assess Card Styles */
+@keyframes rotating-border {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.group:hover [style*="--angle"] {
+  animation: rotating-border 2s linear infinite;
+}
+
+/* Override any conflicting massive container styles when using motion wrapper */
+.motion-assess-override {
+  all: unset;
+  display: flex;
+  flex-direction: column;
 }
